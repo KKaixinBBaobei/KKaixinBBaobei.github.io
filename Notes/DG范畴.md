@@ -451,7 +451,7 @@ $$
 
 - 我们有粘合:
   $$
-  \begin{xy}
+  \begin{xymatrix}
   (0,0)	*+{\mathbf{H}(\mathsf{Mod}_{\mathrm{ac}}\text{-}\mathcal{A})}="1",
   (60,0)	*+{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}="2",
   (120,0)	*+{\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A}).}="3",
@@ -461,7 +461,7 @@ $$
   \ar@/_15pt/ _{\mathbf{p}}	"3";"2"
   \ar			|{\mathrm{can}}	"2";"3"
   \ar@/^15pt/ ^{\mathbf{i}}	"3";"2"
-  \end{xy}
+  \end{xymatrix}
   $$
 
 #### 完美导出范畴
@@ -603,18 +603,18 @@ $$
 - dg范畴 $\mathcal{A}$ 中 $0$-次闭态射 $f:A\to B$ 的 **[映射锥]**, 是指一个对象 $C_f$, 使得下列等价条件之一成立:
   - $C_f$ 是函子 $\Cone(\Hom_\mathcal{A}(-,f)):\mathcal{A}^{op}\to\mathcal{C}_{\mathrm{dg}}(\Bbbk)$ 的一个代表对象.
   - 有右dg $\mathcal{A}$-模同构 $\widehat{C_f}\cong\Cone(\widehat f:\widehat A\to\widehat B)$.
-  - 存在一个图表 $\begin{xy}(0,0)*+{B}="1",(25,0)*+{C_f}="2",(52,0)*+{A[1]}="3",\ar^{i_2} "1";"2"\ar@{..>}@/^/^{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xy}$, 其中:
+  - 存在一个图表 $\begin{xymatrix}(0,0)*+{B}="1",(25,0)*+{C_f}="2",(52,0)*+{A[1]}="3",\ar^{i_2} "1";"2"\ar@{..>}@/^/^{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xymatrix}$, 其中:
     - $i_1,i_2,p_1,p_2$ 是 $0$-次态射;
     - $p_2\circ i_2=\mathbf{1}_B$, $p_1\circ i_1=\mathbf{1}_{A[1]}$, $i_1\circ p_1+i_2\circ p_2=\mathbf{1}_{C_f}$ (即: 若将 $\mathcal{A}$ 视为分次范畴, 则有同构 $C_f\cong A[1]\oplus B$).
     - $d(i_2)=0$, $d(p_1)=0$;
     - $d(i_1)=i_2\circ f\circ s_X^{-1}$, $d(p_2)=-d\circ s_X^{-1}\circ p_1$.
 - 若dg范畴 $\mathcal{A}$ 中任何 $0$-次闭态射都有映射锥, 则称 $\mathcal{A}$ **[有映射锥]**. 此时, 我们将构造一个 **[映射锥函子]** $\Cone:\op{Mor}_{\mathrm{dg}}(\mathcal{A})\to\mathcal{A}$:
-  - 在对象上: 对任意 $0$-次闭态射 $f:A\to B$ 选定一个映射锥 $\Cone(f)$ 连同一个图表 $\begin{xy}(0,0)*+{B}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{A[1]}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xy}$. 函子 $\Cone$ 将 $(A,B,f)$ 映为 $\Cone(f)$.
+  - 在对象上: 对任意 $0$-次闭态射 $f:A\to B$ 选定一个映射锥 $\Cone(f)$ 连同一个图表 $\begin{xymatrix}(0,0)*+{B}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{A[1]}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xymatrix}$. 函子 $\Cone$ 将 $(A,B,f)$ 映为 $\Cone(f)$.
   - 在态射上: 将 $\begin{pmatrix}\alpha&0\\h&\beta\end{pmatrix}:(A,B,f)\to(A',B',f')$ 映为态射 $\begin{pmatrix}(-1)^{|\alpha|}\alpha[1]&0\\h\circ s_A^{-1}&\beta\end{pmatrix}:\Cone(f)\to\Cone(f')$.
   - 不难验证 $\Cone:\op{Mor}_{\mathrm{dg}}(\mathcal{A})\to\mathcal{A}$ 是一个dg函子.
 - 映射锥与平移的关系: 给定 $f:A\to B$, 则 $\Cone(f[1])\cong\Cone(f)[1]$.
 - 映射锥与dg函子与的相容性: 给定dg函子 $F:\mathcal{A\to B}$.
-  - 若 $0$-次闭态射 $f:A\to B$ 有**映射锥** $\Cone(f)$ , 则将 $F$ 作用于图表 $\begin{xy}(0,0)*+{B}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{A[1]}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xy}$ 可知 $Ff$ 有映射锥 $F\Cone(f)$. 此外, 对于 $Ff$ 的任一映射锥 $\Cone(Ff)$ 连连同图表 $\begin{xy}(0,0)*+{FB}="1",(35,0)*+{\Cone(Ff)}="2",(72,0)*+{(FA)[1]}="3",\ar^-{i'_2} "1";"2"\ar@{..>}@/^/^-{p'_2} "2";"1"\ar^-{p'_1} "2";"3"\ar@{..>}@/^/^-{i'_1} "3";"2"\end{xy}$, 我们有dg同构 $\Phi_f:F\Cone(f)\to\Cone(Ff)$, $\Phi_f=i_1'\circ s_{FA}\circ F(s_A^{-1})\circ F(p_1)+i'_2\circ F(p_2)$.
+  - 若 $0$-次闭态射 $f:A\to B$ 有**映射锥** $\Cone(f)$ , 则将 $F$ 作用于图表 $\begin{xymatrix}(0,0)*+{B}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{A[1]}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xymatrix}$ 可知 $Ff$ 有映射锥 $F\Cone(f)$. 此外, 对于 $Ff$ 的任一映射锥 $\Cone(Ff)$ 连连同图表 $\begin{xymatrix}(0,0)*+{FB}="1",(35,0)*+{\Cone(Ff)}="2",(72,0)*+{(FA)[1]}="3",\ar^-{i'_2} "1";"2"\ar@{..>}@/^/^-{p'_2} "2";"1"\ar^-{p'_1} "2";"3"\ar@{..>}@/^/^-{i'_1} "3";"2"\end{xymatrix}$, 我们有dg同构 $\Phi_f:F\Cone(f)\to\Cone(Ff)$, $\Phi_f=i_1'\circ s_{FA}\circ F(s_A^{-1})\circ F(p_1)+i'_2\circ F(p_2)$.
   - 若 $\mathcal{A}$ 有映射锥函子, 且 $F$ 是dg本质满的, 则 $\mathcal{B}$ 也有映射锥函子.
   - 若 $\mathcal{A,B}$ 都有映射锥函子, 则有dg自然变换 $\Phi:F\circ\Cone\to\Cone\circ F:\op{Mor}_{\mathrm{dg}}(\mathcal{A})\to\mathcal{B}$, 其中 $\Phi_f$ 的表达式如上.
 
@@ -741,7 +741,7 @@ $$
   $$
   因此 $\Cone(f)$ 是一个扭曲复形.
 
-- 验证这是映射锥对象: 为了验证 $\Cone(f)$ 是 $f$ 的一个锥对象, 考虑图表 $\begin{xy}(0,0)*+{(E,q)}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{(E',q')}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xy}$, 其中  $i_2=\begin{pmatrix}\id_{E'}&0\end{pmatrix}, p_1=\begin{pmatrix}0\\\id_{E[1]}\end{pmatrix}, i_1=\begin{pmatrix}0&\id_{E[1]}\end{pmatrix}, p_2=\begin{pmatrix}\id_{E'}\\0\end{pmatrix}$. 这四个态射都是 $0$-次态射, 且不难验证下列等式: $p_2\circ i_2=\id_{E'}$, $p_1\circ i_1=\id_{E[1]}$, $i_1\circ p_1+i_2\circ p_2=\id_{\Cone(f)}$, $ d(i_2)=0$, $ d(p_1)=0$, $ d(i_1)=i_2\circ f\circ\beta_{(E,q)}$, $ d(p_2)=-f\circ\beta_{(E,q)}\circ p_1$. 因此 $\Cone(f)$ 是 $f$ 的一个锥对象.
+- 验证这是映射锥对象: 为了验证 $\Cone(f)$ 是 $f$ 的一个锥对象, 考虑图表 $\begin{xymatrix}(0,0)*+{(E,q)}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{(E',q')}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xymatrix}$, 其中  $i_2=\begin{pmatrix}\id_{E'}&0\end{pmatrix}, p_1=\begin{pmatrix}0\\\id_{E[1]}\end{pmatrix}, i_1=\begin{pmatrix}0&\id_{E[1]}\end{pmatrix}, p_2=\begin{pmatrix}\id_{E'}\\0\end{pmatrix}$. 这四个态射都是 $0$-次态射, 且不难验证下列等式: $p_2\circ i_2=\id_{E'}$, $p_1\circ i_1=\id_{E[1]}$, $i_1\circ p_1+i_2\circ p_2=\id_{\Cone(f)}$, $ d(i_2)=0$, $ d(p_1)=0$, $ d(i_1)=i_2\circ f\circ\beta_{(E,q)}$, $ d(p_2)=-f\circ\beta_{(E,q)}\circ p_1$. 因此 $\Cone(f)$ 是 $f$ 的一个锥对象.
 
 <u>**第四步:**</u> $\Tw(\mathcal{A})$ 是 $\mathcal{A}$ 的一个预三角包络.
 
