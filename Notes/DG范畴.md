@@ -543,3 +543,222 @@ $$
 
 - 若有dg自然变换 $\gamma:F\to G$, 则有 **[右导出自然变换]** $\mathbf{L}\gamma:\mathbf{L}F\to\mathbf{L}G$, 定义为 $\mathbf{L}\gamma=\mathrm{can}\circ\gamma\circ\mathbf{i}$, 见上一条.
 
+### 预三角dg范畴
+
+#### 平移对象
+
+##### 正平移
+
+- dg范畴 $\mathcal{A}$ 中对象 $A$ 的 **[正平移]**, 是指一个对象 $A'$, 使得下列等价条件之一成立:
+  - $A'$ 是函子 $\scHom_\mathcal{A}(-,A)[1]:\mathcal{A}^{op}\to\mathcal{C}_{\mathrm{dg}}(\Bbbk)$ 的一个代表对象.
+  - 有右dg $\mathcal{A}$-模同构 $\widehat{A'}\cong\widehat{A}[1]$.
+  - 存在一个 $(-1)$-次闭同构 $A\to A'$.
+- 若dg范畴 $\mathcal{A}$ 中任何对象 $A$ 都有正平移, 则称 $\mathcal{A}$ **[有正平移]**. 此时, 我们将构造一个 **[正平移函子]** $[1]:\mathcal{A}\to\mathcal{A}$:
+  - 在对象上, 对任意对象 $A$, 选定它的一个正平移 $A[1]$ 和一个 $(-1)$-次闭同构 $s_A:A\to A[1]$. $[1]$ 将 $A$ 映为 $A[1]$;
+  - 在态射上, $[1]:\mathcal{A}(A,B)\to\mathcal{A}(A[1],B[1])$, $f\mapsto(-1)^{|f|}s_B\circ f\circ s_A^{-1}$. 
+  - 不难验证 $[1]:\mathcal{A}\to\mathcal{A}$ 是一个全忠实的dg函子.
+  - 对任意 $n\geq1$, 定义 $[n]=[1]^{n}$.
+- 正平移与dg函子与的相容性: 给定dg函子 $F:\mathcal{A\to B}$.
+  - 若 $A\in\mathcal{A}$ 有正平移 $s_A:A\to A[1]$ , 则 $FA$ 有正平移 $Fs_A:FA\to F(A[1])$. 且对 $FA$ 的任一正平移 $s_{FA}:FA\to(FA)[1]$ 我们有dg同构 $\Phi_A=s_{FA}\circ(Fs_A)^{-1}:F(A[1])\to(FA)[1]$. 
+  - 若 $\mathcal{A}$ 有正平移函子, 且 $F$ 是dg本质满的, 则 $\mathcal{B}$ 也有正平移函子.
+  - 若 $\mathcal{A,B}$ 都有正平移函子, 则有dg自然变换 $\Phi:F\circ[1]\to[1]\circ F$, 其中 $\Phi_A=s_{FA}\circ(Fs_A)^{-1}:F(A[1])\to(FA)[1]$.
+
+##### 负平移
+
+- dg范畴 $\mathcal{A}$ 中对象 $A$ 的 **[负平移]**, 是指一个对象 $A'$, 使得下列等价条件之一成立:
+  - $A'$ 是函子 $\scHom_\mathcal{A}(-,A)[-1]:\mathcal{A}^{op}\to\mathcal{C}_{\mathrm{dg}}(\Bbbk)$ 的一个代表对象.
+  - 有右dg $\mathcal{A}$-模同构 $\widehat{A'}\cong\widehat{A}[-1]$.
+  - 存在一个 $1$-次闭同构 $A\to A'$.
+- 若dg范畴 $\mathcal{A}$ 中任何对象 $A$ 都有负平移, 则称 $\mathcal{A}$ **[有负平移]**. 此时, 我们将构造一个 **[负平移函子]** $[-1]:\mathcal{A}\to\mathcal{A}$:
+  - 在对象上, 对任意对象 $A$, 选定它的一个平移 $A[-1]$ 和一个 $1$-次闭同构 $t_A:A\to A[-1]$. $[-1]$ 将 $A$ 映为 $A[-1]$;
+  - 在态射上, $[-1]:\mathcal{A}(A,B)\to\mathcal{A}(A[-1],B[-1])$, $f\mapsto(-1)^{|f|}t_B\circ f\circ t_A^{-1}$. 
+  - 不难验证 $[-1]:\mathcal{A}\to\mathcal{A}$ 是一个全忠实的dg函子.
+  - 对任意 $n\geq1$, 定义 $[-n]=[-1]^{n}$.
+- 负平移与dg函子与的相容性: 给定dg函子 $F:\mathcal{A\to B}$.
+  - 若 $A\in\mathcal{A}$ 有负平移 $t_A:A\to A[-1]$ , 则 $FA$ 有负平移 $Ft_A:FA\to F(A[-1])$. 且对 $FA$ 的任一负平移 $t_{FA}:FA\to(FA)[-1]$ 我们有dg同构 $\Psi_A=t_{FA}\circ(Ft_A)^{-1}:F(A[-1])\to(FA)[-1]$. 
+  - 若 $\mathcal{A}$ 有负平移函子, 且 $F$ 是dg本质满的, 则 $\mathcal{B}$ 也有负平移函子.
+  - 若 $\mathcal{A,B}$ 都有负平移函子, 则有dg自然变换 $\Psi:F\circ[-1]\to[-1]\circ F$, 其中 $\Psi_A=t_{FA}\circ(Ft_A)^{-1}:F(A[-1])\to(FA)[-1]$.
+
+##### 正平移与负平移相容性
+
+- 若 $A$ 有正平移 $s_A:A\to A[1]$, 则 $A[1]$ 有负平移 $s_A^{-1}:A[1]\to A$, 从而 $(A[1])[-1]\cong A$.
+- 若 $A$ 有负平移 $t_A:A\to A[-1]$, 则 $A[-1]$ 有正平移 $t_A^{-1}:A[-1]\to A$, 从而 $(A[-1])[1]\cong A$.
+- 我们称dg范畴 $\mathcal{A}$ **[有平移]**, 且称 $[1]$ 为一个 **[平移函子]**, 如果下列等价命题之一成立:
+  - $\mathcal{A}$ 既有正平移也有负平移;
+  - $\mathcal{A}$ 有正平移, 且正平移函子 $[1]$ 是dg本质满的; 此时 $[1]$ 的一个dg拟逆是负平移函子;
+  - $\mathcal{A}$ 有负平移, 且负平移函子 $[-1]$ 是dg本质满的; 此时 $[-1]$ 的一个dg拟逆是正平移函子.
+
+#### 映射锥对象
+
+##### dg态射范畴
+
+- 对于dg范畴 $\mathcal{A}$, 定义 **[dg态射范畴]** $\op{Mor}_{\mathrm{dg}}(\mathcal{A})$:
+  - 对象: 全体三元组 $(A,B,f)$, 其中 $A,B\in\mathcal{A}$ 是两个对象, $f:A\to B$ 是一个 $0$-次闭态射.
+  - 态射: $\Hom_{\op{Mor}_{\mathrm{dg}}(\mathcal{A})}((A,B,f),(A',B',f'))^p$ $=$ $\left\{\begin{pmatrix}\alpha&0\\h&\beta\end{pmatrix}\mid\alpha\in\mathcal{A}(A,A')^p,\beta\in\mathcal{A}(B,B')^p, h\in\mathcal{A}(A,B')^{p-1}\right\}$.
+  - 微分: $d\begin{pmatrix}\alpha&0\\h&\beta\end{pmatrix}=\begin{pmatrix}-d(\alpha)&0\\d(h)+f'\circ\alpha-(-1)^p\beta\circ f&d(\beta)\end{pmatrix}$, 其中 $p$ 是次数.
+  - 复合: 由矩阵乘法给出.
+
+##### 映射锥
+
+- dg范畴 $\mathcal{A}$ 中 $0$-次闭态射 $f:A\to B$ 的 **[映射锥]**, 是指一个对象 $C_f$, 使得下列等价条件之一成立:
+  - $C_f$ 是函子 $\Cone(\Hom_\mathcal{A}(-,f)):\mathcal{A}^{op}\to\mathcal{C}_{\mathrm{dg}}(\Bbbk)$ 的一个代表对象.
+  - 有右dg $\mathcal{A}$-模同构 $\widehat{C_f}\cong\Cone(\widehat f:\widehat A\to\widehat B)$.
+  - 存在一个图表 $\begin{xy}(0,0)*+{B}="1",(25,0)*+{C_f}="2",(52,0)*+{A[1]}="3",\ar^{i_2} "1";"2"\ar@{..>}@/^/^{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xy}$, 其中:
+    - $i_1,i_2,p_1,p_2$ 是 $0$-次态射;
+    - $p_2\circ i_2=\mathbf{1}_B$, $p_1\circ i_1=\mathbf{1}_{A[1]}$, $i_1\circ p_1+i_2\circ p_2=\mathbf{1}_{C_f}$ (即: 若将 $\mathcal{A}$ 视为分次范畴, 则有同构 $C_f\cong A[1]\oplus B$).
+    - $d(i_2)=0$, $d(p_1)=0$;
+    - $d(i_1)=i_2\circ f\circ s_X^{-1}$, $d(p_2)=-d\circ s_X^{-1}\circ p_1$.
+- 若dg范畴 $\mathcal{A}$ 中任何 $0$-次闭态射都有映射锥, 则称 $\mathcal{A}$ **[有映射锥]**. 此时, 我们将构造一个 **[映射锥函子]** $\Cone:\op{Mor}_{\mathrm{dg}}(\mathcal{A})\to\mathcal{A}$:
+  - 在对象上: 对任意 $0$-次闭态射 $f:A\to B$ 选定一个映射锥 $\Cone(f)$ 连同一个图表 $\begin{xy}(0,0)*+{B}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{A[1]}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xy}$. 函子 $\Cone$ 将 $(A,B,f)$ 映为 $\Cone(f)$.
+  - 在态射上: 将 $\begin{pmatrix}\alpha&0\\h&\beta\end{pmatrix}:(A,B,f)\to(A',B',f')$ 映为态射 $\begin{pmatrix}(-1)^{|\alpha|}\alpha[1]&0\\h\circ s_A^{-1}&\beta\end{pmatrix}:\Cone(f)\to\Cone(f')$.
+  - 不难验证 $\Cone:\op{Mor}_{\mathrm{dg}}(\mathcal{A})\to\mathcal{A}$ 是一个dg函子.
+- 映射锥与平移的关系: 给定 $f:A\to B$, 则 $\Cone(f[1])\cong\Cone(f)[1]$.
+- 映射锥与dg函子与的相容性: 给定dg函子 $F:\mathcal{A\to B}$.
+  - 若 $0$-次闭态射 $f:A\to B$ 有**映射锥** $\Cone(f)$ , 则将 $F$ 作用于图表 $\begin{xy}(0,0)*+{B}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{A[1]}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xy}$ 可知 $Ff$ 有映射锥 $F\Cone(f)$. 此外, 对于 $Ff$ 的任一映射锥 $\Cone(Ff)$ 连连同图表 $\begin{xy}(0,0)*+{FB}="1",(35,0)*+{\Cone(Ff)}="2",(72,0)*+{(FA)[1]}="3",\ar^-{i'_2} "1";"2"\ar@{..>}@/^/^-{p'_2} "2";"1"\ar^-{p'_1} "2";"3"\ar@{..>}@/^/^-{i'_1} "3";"2"\end{xy}$, 我们有dg同构 $\Phi_f:F\Cone(f)\to\Cone(Ff)$, $\Phi_f=i_1'\circ s_{FA}\circ F(s_A^{-1})\circ F(p_1)+i'_2\circ F(p_2)$.
+  - 若 $\mathcal{A}$ 有映射锥函子, 且 $F$ 是dg本质满的, 则 $\mathcal{B}$ 也有映射锥函子.
+  - 若 $\mathcal{A,B}$ 都有映射锥函子, 则有dg自然变换 $\Phi:F\circ\Cone\to\Cone\circ F:\op{Mor}_{\mathrm{dg}}(\mathcal{A})\to\mathcal{B}$, 其中 $\Phi_f$ 的表达式如上.
+
+#### 零对象
+
+- dg范畴 $\mathcal{A}$ 中的对象 $A$ 称为零对象, 如果 $\id_A=0$. 零对象通常记为.
+  - 零对象的任意平移仍是零对象.
+  - 对任意对象 $A\in\mathcal{A}$, 我们有 $\Cone(0\to A)\cong A$, $\Cone(A\to0)\cong A[1]$.
+
+#### 预三角dg范畴
+
+- dg范畴 $\mathcal{A}$ 称为 **[预三角dg范畴]**, 如果 $\mathcal{A}$ 有零对象, 有平移, 也有映射锥.
+
+  - 以下当我们谈到预三角dg范畴时, 总是假定它已经选定了零对象、平移函子、映射锥函子.
+  - 有映射锥, 意味着 $\mathcal{A}$ 有任意直和. 因此 $\mathcal{A}$ 是一个加法范畴.
+  - 例: 任意dg范畴 $\mathcal{A}$ 的右dg模范畴 $\mathsf{Mod}\text{-}\mathcal{A}$ 都是预三角dg范畴. 注意到Yoneda嵌入给出了全忠实dg函子 $\Upsilon:\mathcal{A}\to\mathsf{Mod}\text{-}\mathcal{A}$, $A\mapsto\widehat{A}$.
+
+- dg范畴 $\mathcal{A}$ 的一个 **[预三角包络]**, 是指一个预三角dg范畴 $\mathcal{A}^{\mathrm{pretr}}$ 和一个全忠实dg函子 $\Iota:\mathcal{A}\to\mathcal{A}^{\mathrm{pretr}}$ (从而可将 $\mathcal{A}$ 视为 $\mathcal{A}^{\mathrm{pretr}}$ 的dg全子范畴), 使得 $\mathcal{A}^{\mathrm{pretr}}$ 中包含 $\mathcal{A}$ 的最小预三角dg范畴就是 $\mathcal{A}^{\mathrm{pretr}}$ 本身.
+
+  - 存在性: 考虑 $\mathsf{Mod}\text{-}\mathcal{A}$ 中包含 $\mathcal{A}$, 关于同构、平移、映射锥封闭, 且含零对象的最小dg子范畴, 将它记为 $\mathcal{A}^{\mathrm{pretr}}$. 则 $\Upsilon:\mathcal{A}\to\mathcal{A}^{\mathrm{pretr}}$ 是 $\mathcal{A}$ 的一个预三角包络.
+
+    - **[推论]** $\mathcal{A}$ 是预三角dg范畴, 当且仅当 $\mathcal{A}^{\mathrm{pretr}}\subseteq\mathsf{Mod}\text{-}\mathcal{A}$ 中的任何对象都是一个可表模.
+
+  - 泛性质: 若 $\mathcal{B}$ 是另一个预三角dg范畴, 则对任意dg函子 $F:\mathcal{A}\to\mathcal{B}$, 存在唯一的函子 $G:\mathcal{A}^{\mathrm{pretr}}\to\mathcal{B}$ 使得 $G\circ\Iota=F$. **[证明]** 递归定义 $\mathcal{A}^{\mathrm{pretr}}$ 的如下dg全子范畴: 
+  
+    - $\mathcal{A}^{\mathrm{pretr}}_0=\{X\mid X\cong0$ 或 $X\cong A[k],A\in\mathcal{A},k\in\mathbb{Z}\}$, 这里 $0$ 是 $\mathcal{A}^{\mathrm{pretr}}$ 的零对象;
+    - $\mathcal{A}^{\mathrm{pretr}}_{n+1}=\{X\mid X\cong\Cone(f)$, 其中 $f$ 是 $\mathcal{A}^{\mathrm{pretr}}_n$ 中的某个 $0$-次闭态射$\}$.
+
+    容易看到 $\mathcal{A}\subseteq\mathcal{A}^{\mathrm{pretr}}_0\subseteq\mathcal{A}^{\mathrm{pretr}}_1\subseteq\cdots\subseteq\mathcal{A}^{\mathrm{pretr}}_n\subseteq\mathcal{A}^{\mathrm{pretr}}_{n+1}\subseteq\cdots$, 且 $\mathcal{A}^{\mathrm{pretr}}=\bigcup_{n\geq0}\mathcal{A}^{\mathrm{pretr}}_n$. 我们将递归地构造函子 $G:\mathcal{A}^{\mathrm{pretr}}\to\mathcal{B}$.
+  
+    - 对于 $X\in\mathcal{A}^{\mathrm{pretr}}_0$, 设 $X\cong A[k]$ ($A\in\mathcal{A},k\in\mathbb{Z}$), 我们定义 $GX=(FA)[k]$. 
+    - 对于 $X\in\mathcal{A}^{\mathrm{pretr}}_{n+1}$, 设 $X\cong\Cone(f)$ ($f\in Z^0\mathcal{A}^{\mathrm{pretr}}_n$), 我们定义 $GX=\Cone(Ff)$.
+
+    不难验证以上方式良定义地给出了dg函子 $G:\mathcal{A}^{\mathrm{pretr}}\to\mathcal{B}$, 使得 $G\circ\Iota=F$.
+  
+  - 唯一性: 泛性质说明, $\mathcal{A}$ 的预三角包络在dg自然等价的意义下是唯一的.
+
+##### 扭曲复形
+
+- 记号约定:
+
+  - 设 $\mathcal{A}$ 有平移, 且假设平移函子 $[1]:\mathcal{A}\to\mathcal{A}$ 是一个dg同构, $[-1]=[1]^{-1}$ (当 $[1]$ 只是dg等价时, 我不知道如何处理本小节内容). 我们记 $\Sigma^k:A\to A[k]$ 为典范的 $(-k)$-次同构. 具体地,
+    - 当 $k>0$ 时, $[k]=s_{A[k-1]}\circ\cdots\circ s_A:A\to A[1]\to\cdots\to A[k-1]\to A[k]$.
+    - 当 $k<0$ 时, $[k]=t_{A[k+1]}\circ\cdots\circ t_A:A\to A[-1]\to\cdots\to A[k+1]\to A[k]$.
+  - 对任意 $A,B\in\mathcal{A}$ 和任意 $k,l\in\mathbb{Z}$, 有链复形的典范同构 $\Phi:\mathcal{A}(A[k],B[l])\to\mathcal{A}(A,B)[l-k]$, $f\mapsto(-1)^{k|f|}\Sigma^{-l}\circ f\circ\Sigma^k$, 这里右端元素视为属于 $\mathcal{A}(A,B)[l-k]$.
+  - 对任意对象 $A,B,C\in\mathcal{A}$, 我们有典范态射 $\mathcal{A}(B,C)[l]\otimes\mathcal{A}(A,B)[k]\to\mathcal{A}(A,C)[k+l]$, $g\otimes f\mapsto(-1)^{k|g|}\Sigma^{k+l}(\Sigma^{-l}(g)\circ\Sigma^{-k}(f))$, 这里 $\Sigma$ 代表复形的平移态射. 它满足交换图表
+
+  $$
+  \begin{CD}
+  	\mathcal{A}(B[k],C[k+l])\otimes\mathcal{A}(A,B[k]) @>\text{通常复合}>>
+  	\mathcal{A}(A,C[k+l])\\
+  	@V{\Phi\otimes\Phi}VV @VV{\Phi}V\\
+  	\mathcal{A}(B,C)[l]\otimes\mathcal{A}(A,B)[k] @>>>
+  	\mathcal{A}(A,C)[k+l].
+  \end{CD}
+  $$
+
+- 对于dg范畴 $\mathcal{A}$, 我们定义其上 **[扭曲复形的dg范畴]** $\Tw(\mathcal{A})$:
+
+  - 对象: $\mathcal{A}$ 上的扭曲复形. 所谓 **[扭曲复形]** 是一个二元组 $(E,q)$, 其中
+    - $E$ 是由 $\mathcal{A}$ 中一些对象 $E_1,\cdots,E_n$ 和一些整数 $r_1,\cdots,r_n$ 构成的集合 (允许重复), 常形式地记为 $E=\bigoplus_{i=1}^nE_i[r_i]$;
+    - $q=(q_{ij})_{n\times n}$ 是一个严格下三角矩阵, 其中当 $i>j$ 时 $q_{ij}\in\mathcal{A}(E_j,E_i)[r_i-r_j]^1$;
+    - $q$ 满足 **[Maurer–Cartan 方程]** $d(q)+q^2=0$, 其中 $d(q)=(d_{\mathcal{A}(E_j,E_i)[r_i-r_j]}(q_{ij}))$, $q^2$ 是矩阵乘法.
+
+  - 态射: 扭曲复形的态射 $f:(E,q)\to(E',q')$ 定义如下:
+    - $f=(f_{ij})$ 是由态射构成的矩阵, 其中 $f_{ij}\in\mathcal{A}(E_j,E'_i)[r'_i-r_j]$;
+    - $|f|=p$ 如果 $f_{ij}\in\mathcal{A}(E_j,E'_i)[r'_i-r_j]^p$, $\forall i,j$.
+  - 复合: 由矩阵乘法给出;
+  - 微分: $d_{\Tw(\mathcal{A})}(f)=d(f_{ij})+q'f-(-1)^{|f|}fq$.
+
+
+**[定理]** $\Tw(\mathcal{A})$ 是 $\mathcal{A}$ 的一个预三角包络.
+
+**[证明]** 分为四步. <u>**第一步:**</u> $\Tw(\mathcal{A})$ 是一个dg范畴.
+
+- 首先, $\Tw(\mathcal{A})$ 的对象、态射、复合都是良定义的. 对任意扭曲复形 $(E,q)$, 考虑单位矩阵 $\id_{(E,q)}=\op{diag}(\id_{E_1},\cdots,\id_{E_n})$, 其中 $\id_{E_i}\in\Hom_\mathcal{A}(E_i,E_i)[r_i-r_i]^0$, 不难验证它给出了恒等态射. 态射集上有分次 $\Bbbk$-模结构, 复合是双线性且保分次的, 因此 $\Tw(\mathcal{A})$ 是一个分次范畴. 
+
+- 我们必须验证 $d_{\Tw(\mathcal{A})}$ 是一个微分. 显然 $d_{\Tw(\mathcal{A})}$ 是 $1$-次同态. 对于态射 $f:(E,q)\to(E',q')$ 和 $g:(E',q')\to(E'',q'')$, 直接计算可得
+  $$
+  \begin{aligned}
+  	d_{\Tw(\mathcal{A})}^2(f)
+  	&= d_{\Tw(\mathcal{A})}( d(f)+q'f-(-1)^{|f|}fq)\\
+  	&= d\big( d(f)+q'f-(-1)^{|f|}fq\big)+q'\big( d(f)+q'f-(-1)^{|f|}fq\big)-(-1)^{|f|+1}\big( d(f)+q'f-(-1)^{|f|}fq\big)q\\
+  	&= d(q'f)-(-1)^{|f|} d(fq)+q' d(f)+q'^2f-(-1)^{|f|}q'fq+(-1)^{|f|} d(f)q+(-1)^{|f|}q'fq-fq^2\\
+  	&= d(q')f-q' d(f)-(-1)^{|f|}( d(f)q+(-1)^{|f|}f d(q))+q' d(f)+q'^2f+(-1)^{|f|} d(f)q-fq^2\\
+  	&=-q'^2f-q' d(f)-(-1)^{|f|} d(f)q+fq^2+q' d(f)+q'^2f+(-1)^{|f|} d(f)q-fq^2\\
+  	&=0,\\
+  	 d_{\Tw(\mathcal{A})}(g\circ f)
+  	&= d(gf)+q''gf-(-1)^{|f|+|g|}gfq\\
+  	&= d(g)f+(-1)^{|g|}g d(f)+q''gf-(-1)^{|g|}gq'f+(-1)^{|g|}gq'f-(-1)^{|f|+|g|}gfq\\
+  	&= d(g)f+q''gf-(-1)^{|g|}gq'f+(-1)^{|g|}g d(f)+(-1)^{|g|}gq'f-(-1)^{|f|+|g|}gfq\\
+  	&=( d(g)+q''g-(-1)^{|g|}gq')f+(-1)^{|g|}g( d(f)+q'f-(-1)^{|f|}fq)\\
+  	&= d_{\Tw(\mathcal{A})}(g)\circ f+(-1)^{|g|}g\circ  d_{\Tw(\mathcal{A})}(f).
+  \end{aligned}
+  $$
+
+<u>**第二步:**</u> $\Tw(\mathcal{A})$ 有平移函子.
+
+- 定义平移对象: 扭曲复形 $(E=\bigoplus_{i=1}^nE_i[r_i],q)$ 的平移对象定义为 $(E,q)[1]=(E[1],q[1])$, 其中 $E[1]=\bigoplus_{i=1}^nE_i[r_i+1]$, $q[1]=q$. 这样定义的 $(E,q)[1]$ 显然满足 Maurer–Cartan 方程, 因此 $(E,q)[1]$ 确实是一个扭曲复形.
+
+- 验证它是平移对象: 定义 $(-1)$-次态射 $s_{(E,q)}:(E,q)\to(E,q)[1]$ 为对角矩阵 $s_{(E,q)}=\op{diag}((-1)^{r_i}\id_{E_i})$, 其中 $\id_{E_i}\in\Hom_{\mathcal{A}}(E_i,E_i)[-1]^{-1}$. 它显然是分次同构. 我们验证它是闭的:
+  $$
+  \begin{aligned}
+  	 d_{\Tw(\mathcal{A})}(s_{(E,q)})
+  	&= d(s_{(E,q)})+q[1]s_{(E,q)}-(-1)^{|s_{(E,q)}|}s_{(E,q)}q\\
+  	&=qs_{(E,q)}+s_{(E,q)}q\\
+  	&=(-(-1)^{r_j}q_{ij})+((-1)^{r_i-r_j}(-1)^{r_i}q_{ij})\\
+  	&=0.
+  \end{aligned}
+  $$
+
+<u>**第三步:**</u> $\Tw(\mathcal{A})$ 有映射锥函子.
+
+- 定义映射锥对象: 对于 $0$-次闭态射 $f:(E,q)\to(E',q')$, 我们定义映射锥 $\Cone(f)$ 为 $(E[1]\oplus E',Q)$, 其中 $Q=\begin{pmatrix}q[1]&0\\f'&q\end{pmatrix}$, 这里的 $q[1]=q$ 如上, $f'=(f'_{ij})$ 中的 $f'_{ij}\in\Hom_{\Tw(\mathcal{A})}(E_j,E'_i)[r'_i-(r_j+1)]^1$ 是与 $f_{ij}\in\Hom_{\Tw(\mathcal{A})}(E_j,E'_i)[r'_i-r_j]^0$ 对应的元素.
+
+- 验证Maurer–Cartan方程：由 $f\in Z^0$ 可知 $ d(f)+q'f-fq=0$, 再由 $d(f)=- d(f'),q'f=-q'f',fq=f'q$ 可得 $ d(f')+q'f'-(-1)^{|f'|}f'q=0$, 于是
+  $$
+  \begin{aligned}
+  	 d(Q)+Q^2
+  	&=\begin{pmatrix} d(q')& d(f')\\0& d(q)\end{pmatrix}+\begin{pmatrix}q'^2&q'f'+f'q\\0&q^2\end{pmatrix}\\
+  	&=\begin{pmatrix} d(q')+q'^2& d(f')+q'f'+f'q\\0& d(q)+q^2\end{pmatrix}
+  	=\begin{pmatrix}0&0\\0&0\end{pmatrix}.
+  \end{aligned}
+  $$
+  因此 $\Cone(f)$ 是一个扭曲复形.
+
+- 验证这是映射锥对象: 为了验证 $\Cone(f)$ 是 $f$ 的一个锥对象, 考虑图表 $\begin{xy}(0,0)*+{(E,q)}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{(E',q')}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xy}$, 其中  $i_2=\begin{pmatrix}\id_{E'}&0\end{pmatrix}, p_1=\begin{pmatrix}0\\\id_{E[1]}\end{pmatrix}, i_1=\begin{pmatrix}0&\id_{E[1]}\end{pmatrix}, p_2=\begin{pmatrix}\id_{E'}\\0\end{pmatrix}$. 这四个态射都是 $0$-次态射, 且不难验证下列等式: $p_2\circ i_2=\id_{E'}$, $p_1\circ i_1=\id_{E[1]}$, $i_1\circ p_1+i_2\circ p_2=\id_{\Cone(f)}$, $ d(i_2)=0$, $ d(p_1)=0$, $ d(i_1)=i_2\circ f\circ\beta_{(E,q)}$, $ d(p_2)=-f\circ\beta_{(E,q)}\circ p_1$. 因此 $\Cone(f)$ 是 $f$ 的一个锥对象.
+
+<u>**第四步:**</u> $\Tw(\mathcal{A})$ 是 $\mathcal{A}$ 的一个预三角包络.
+
+- 我们构造一个全忠实的dg函子 $\mathcal{A}\to\Tw(\mathcal{A})$:
+  - 在对象上, 将对象 $A$ 映为扭曲复形 $(A[0],0)$;
+
+  - 在态射上, 将态射 $f\in\mathcal{A}(A,B)$ 映为 $(f)\in\Hom_{\Tw(\mathcal{A})}((A[0],0),(B[0],0))$.
+- 为了说明它是dg本质满的, 我们给出如下构造: 任取扭曲复形 $(E=\bigoplus_{i=1}^nE_i[r_i],q=(q_{ij}))$, 令 $E'=(E_1[r_1-1],0)$, $E''=(\bigoplus_{i=2}^nE_i[r_i],(q_{ij})_{2\leq j<i\leq n})$, 则有态射 $f=(q'_{21},\cdots,q'_{n1})^T:E'\to E''$, 其中 $q'_{i1}\in\mathcal{A}(E_1,E_i)[r_i-(r_1-1)]^0$ 是与 $q_{i1}\in\mathcal{A}(E_1,E_i)[r_i-r_1]^1$ 对应的元素. 利用 $d(q)+q^2=0$ 以及分块矩阵乘法, 可见 $f$ 是一个 $0$-次闭态射, 且根据映射锥的构造可知 $E\cong\Cone(f)$. 据此, 归纳可知 $E$ 是从 $E_1,\cdots,E_n$ 出发, 作平移之和映射锥得到的对象. **[证毕]**
+
+##### 三角结构
+
+**[定理]** 设 $\mathcal{A}$ 是一个预三角dg范畴. 则 $Z^0\mathcal{A}$ 有一个典范的Frobenius范畴结构, 使得其稳定范畴就是 $H^0\mathcal{A}$. 从而 $H^0\mathcal{A}$ 是一个三角范畴.
+
+- 例: 若 $\mathcal{A}$ 是一个dg范畴, 则 $\mathsf{Mod}\text{-}\mathcal{A}$ 是一个预三角dg范畴, 而 $H^0\mathcal{A}$ 就是同伦范畴 $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$.
+
+- **[证明概要]** 一个不用Frobenius范畴理论的证明, 参见《The Stacks Project》Section [09P5](https://stacks.math.columbia.edu/tag/09P5).**[证毕]**
+
+- dg范畴 $\mathcal{A}$ 的 **[三角包络]** $\mathcal{A}^{\mathrm{tr}}$ 定义为三角范畴 $H^0(\mathcal{A}^{\mathrm{pretr}})$.
+
+- 例: 若 $\mathcal{A}$ 是一个dg范畴, 则 $\mathsf{Mod}\text{-}\mathcal{A}$ 是一个预三角dg范畴, 而 $H^0\mathcal{A}$ 就是同伦范畴 $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$.
