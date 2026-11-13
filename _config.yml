@@ -4,6 +4,8 @@ lang: zh-CN
 url: https://kkaixinbbaobei.github.io
 baseurl: ""
 markdown: kramdown
+kramdown:
+  math_engine: mathjax
 permalink: /Notes/:year/:month/:day/:title/
 exclude:
   - Gemfile

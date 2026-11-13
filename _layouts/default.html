@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title | default: site.title | escape }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    {% if page.math %}
+    <script>
+      window.MathJax = {
+        loader: {
+          load: ['[custom]/xypic.js'],
+          paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+        },
+        tex: {
+          packages: {'[+]': ['xypic']},
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          macros: {
+            op: ['\\mathop{\\mathrm{#1}}\\nolimits', 1],
+            Hom: '\\op{Hom}',
+            scHom: '\\op{\\mathscr{H}\\!om}',
+            RHom: '\\op{\\mathbf{R}\\mathscr{H}\\!om}',
+            Cone: '\\op{Cone}',
+            Tw: '\\op{Tw}',
+            id: '\\op{id}',
+            colim: '\\op{colim}'
+          }
+        }
+      };
+    </script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-chtml-full.js"></script>
+    {% endif %}
   </head>
   <body>
     <div class="site">
