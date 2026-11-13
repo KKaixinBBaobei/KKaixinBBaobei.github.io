@@ -1,0 +1,11 @@
+title: 倪志扬的个人主页
+description: 个人信息、数学笔记与论文
+lang: zh-CN
+url: https://kkaixinbbaobei.github.io
+baseurl: ""
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
