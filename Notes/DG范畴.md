@@ -2,11 +2,11 @@
 
 本文中, 固定一个交换幺环 $\Bbbk$, 将 $\otimes_\Bbbk$ 简记为 $\otimes$. 
 
-预定义命令: $\newcommand\op[1]{\mathop{\mathrm{#1}}\nolimits} \def\Hom{\op{Hom}} \def\scHom{\op{\mathscr{H}\!om}} \def\RHom{\op{\mathbf{R}\mathscr{H}\!om}} \def\Cone{\op{Cone}} \def\Tw{\op{Tw}} \def\id{\op{id}}$
+预定义命令: \newcommand\op[1]{\mathop{\mathrm{#1}}\nolimits} \def\Hom{\op{Hom}} \def\scHom{\op{\mathscr{H}\!om}} \def\RHom{\op{\mathbf{R}\mathscr{H}\!om}} \def\Cone{\op{Cone}} \def\Tw{\op{Tw}} \def\id{\op{id}} \def\colim{\op{colim}}
 
-### 预备
+## 预备
 
-#### 分次范畴
+### 分次范畴
 
 - 一个 **[分次范畴]** 是一个 $\Bbbk$-线性范畴 $\mathcal{A}$, 使得
 
@@ -37,17 +37,17 @@
   - 态射: 分次 $\Bbbk$-模同态.
   - 复合: 通常意义下的的复合.
   
-- 例: 给定两个分次范畴 $\mathcal{A},\mathcal{B}$. 我们有 **[函子分次范畴]** $\op{Fun}_{gr}(\mathcal{A},\mathcal{B})$, 其中
+- 例: 给定两个分次范畴 $\mathcal{A},\mathcal{B}$. 我们有 **[函子分次范畴]** $\op{Fun}_{\mathrm{gr}}(\mathcal{A},\mathcal{B})$, 其中
 
   - 对象: 分次函子 $F:\mathcal{A}\to\mathcal{B}$;
   - 态射: 全体分次自然变换;
   - 复合: 自然变换的通常复合.
 
-##### 左分次模
+#### 左分次模
 
 - 分次范畴 $\mathcal{A}$ 上的一个 **[左分次模]** 是一个分次函子 $M:\mathcal{A}\to\mathcal{G}(\Bbbk)$, 或等价地:
 
-  - 我们把范畴 $\mathcal{A}$ 等同于直和 $\tilde{\mathcal{A}}=\bigoplus_{A,B\in\mathcal{A}}\mathcal{A}(A,B)$, 这是一个[有足够多正交幂等元](https://en.wikipedia.org/wiki/Rng_(algebra))的分次代数;
+  - 我们把范畴 $\mathcal{A}$ 等同于直和 $\tilde{\mathcal{A}}=\bigoplus_{A,B\in\mathcal{A}}\mathcal{A}(A,B)$, 这是一个[有足够多正交幂等元](https://en.wikipedia.org/wiki/Rng_(algebra)#Properties_weaker_than_having_an_identity)的分次代数;
   - 我们把函子 $M$ 等同于直和 $\tilde M=\bigoplus_{A\in\mathcal{A}}M(A)$, 这是一个分次 $\Bbbk$-模;
   - 对任意态射 $a:A\to B$ 和任意 $m\in M(A)\subseteq\tilde M$, 记 $a\cdot m=M(a)(m)$; 当 $m\notin M(A)$ 时, 规定 $a\cdot m=0$. 则这给出了 $\tilde{\mathcal{A}}$ 在 $\tilde M$ 上的一个模作用, 且 $\tilde M$ 是 **[幺 $\tilde{\mathcal{A}}$-模]** (即 $\tilde{\mathcal{A}}\tilde M=\tilde M$).
   - 容易证明: 在同构意义下, 左分次 $\mathcal{A}$-模一一对应于左分次幺 $\tilde{\mathcal{A}}$-模. **[证明]:** 给定左分次 $\mathcal{A}$-模 $M$, 我们可以构造如上的 $\tilde M$. 反过来, 给定左分次幺 $\tilde{\mathcal{A}}$-模 $\tilde M$. 对任意 $A\in\mathcal{A}$, 记 $e_A=\mathbf1_A\in\tilde{\mathcal{A}}$ 为相应的幂等元, 则 $\{e_A\}_{A\in\mathcal{A}}$ 是两两正交幂等元的集合. 构造函子 $M:\mathcal{A}\to\mathcal{G}(\Bbbk)$, 使得 $M(A)=e_A\tilde M$, 对于态射 $a:A\to B$ 有 $M(a):M(A)\to M(B)$, $m\mapsto am$ (这是良定义的, 因为 $a=e_Bae_A$). 因为 $\tilde M$ 是幺模, 所以 $\tilde M=\bigoplus_{A\in\mathcal{A}}M(A)$, 可见上述两个构造是互逆的. (根据下面的构造, 这实际上也是一个范畴等价.) 
@@ -71,14 +71,14 @@
   - 态射: 全体 $0$-次模同态, 态射集记为 $\Hom_{\mathcal{A}}(M,N)$ 的形式;
   - 复合: 通常意义下的复合.
 
-- 定义 **[左分次 $\mathcal{A}$-模的分次范畴]** $\mathcal{A}\text{-}\mathsf{Mod}_{gr}$:
+- 定义 **[左分次 $\mathcal{A}$-模的分次范畴]** $\mathcal{A}\text{-}\mathsf{Mod}_{\mathrm{gr}}$:
 
   - 对象: 全体左分次 $\mathcal{A}$-模;
   - 态射: 全体分次模同态, 态射集记为 $\scHom_{\mathcal{A}}(M,N)$ 的形式, 我们有 $\scHom_{\mathcal{A}}(M,N)=\bigoplus_{p\in\mathbb{Z}}\Hom_{\mathcal{A}}(M,N[p])$, 这里右端直和项是 $\mathcal{A}\text{-}\mathsf{Mod}$ 中的态射集;
     - 这里用 $\scHom$ 是因为它将两个分次 $\mathcal{A}$-模映为一个分次 $\Bbbk$-模, 所以某种意义上它是一个内部 $\Hom$-函子. 后面讨论dg模的 $\Hom$ 时, 也将用类似的记号.
   - 复合: 通常意义下的复合.
 
-##### 右分次模
+#### 右分次模
 
 - 分次范畴 $\mathcal{A}$ 上的一个 **[右分次模]** 是一个分次函子 $M:\mathcal{A}^{\mathrm{op}}\to\mathcal{G}(\Bbbk)$. 
   - 模作用记为 $m\cdot a$, 其中 $a\in\mathcal{A}^{\mathrm{op}}(A,B)$, $m\in\mathcal{A}^{\mathrm{op}}(A)$.
@@ -89,7 +89,7 @@
   - 分次 $\mathcal{A}$-模的 **[$p$-次同态]** $f:M\to N$ 是一个 $p$ 次自然变换, 或等价定义为一个分次模同态 $M\to N[p]$. 具体来讲:
     - 对任意态射 $a:A\to B$ 和任意 $m\in M(B)$, 有 $f(m\cdot a)=f(m)\cdot a$;
     - 对任意 $m\in M(A)$, 有 $|f(m)|=|m|+|f|$.
-  - 可以类似地定义 **[右分次 $\mathcal{A}$-模的Abel范畴]** $\mathsf{Mod}\text{-}\mathcal{A}$ 和 **[右分次 $\mathcal{A}$-模的分次范畴]** $\mathsf{Mod}_{gr}\text{-}\mathcal{A}$.
+  - 可以类似地定义 **[右分次 $\mathcal{A}$-模的Abel范畴]** $\mathsf{Mod}\text{-}\mathcal{A}$ 和 **[右分次 $\mathcal{A}$-模的分次范畴]** $\mathsf{Mod}_{\mathrm{gr}}\text{-}\mathcal{A}$.
 - 右分次 $\mathcal{A}$-模与左分次 $\mathcal{A}^{\mathrm{op}}$-模的关系: 
   - 给定右分次 $\mathcal{A}$-模 $M$, 则 $M$ 上有如下的左分次 $\mathcal{A}^{\mathrm{op}}$-模结构: $a\cdot_{\mathrm{op}}m=(-1)^{|a||m|}m\cdot a$, 对任意 $a\in\mathcal{A}(B,A)$ 和 $m\in M(A)$ 成立. 我们将这个左分次 $\mathcal{A}^{\mathrm{op}}$-模记为 $M^{\mathrm{op}}$;
   - 此时 $M^{\mathrm{op}}[p]=(M[p])^{\mathrm{op}}$ (作为左分次 $\mathcal{A}^{\mathrm{op}}$-模相等);
@@ -97,15 +97,15 @@
   - 更具体地: 对任意态射 $f:B\to C$ (视为 $\mathcal{A}$ 的元素) 和任意态射 $g:C\to A$ (视为 $\widehat A$ 的元素), 定义 $g\cdot f=\widehat A(f)(g)=(-1)^{|f||g|}g\circ f$.
   - $\widehat A$ 具有如下性质: 对任意右分次 $\mathcal{A}$-模 $M$, 有自然的分次同构 $\scHom_{\mathcal{A}}(\widehat A,M)\cong M(A)$, $f\mapsto f(A)(\mathbf1_A)$. 由此可知 $\Hom_{\mathcal{A}}(\widehat A,M)\cong M(A)^0$.
 
-##### 双边分次模
+#### 双边分次模
 
 - 一个分次 $\mathcal{A}$-$\mathcal{B}$-双模 $M$ 是一个左分次 $\mathcal{A}\otimes\mathcal{B}^{\mathrm{op}}$-模.
 
   - 更具体地讲, $M$ 同时是左分次 $\mathcal{A}$-模和右分次 $\mathcal{B}$-模, 且两个模结构在如下意义下相容: 对于 $m\in M(A\otimes B)$, $a:A\to A'$ 和 $b:B'\to B$, 我们有 $(a\cdot m)\cdot b=a\cdot(m\cdot b)$.
   - 一个分次 $\mathcal{A}$-$\mathcal{B}$-双模也可以定义成一个右分次 $\mathcal{A}^{\mathrm{op}}\otimes\mathcal{B}$-模.
   - 用 $_\mathcal{A}M_\mathcal{B}$ 表示 $M$ 是一个分次 $\mathcal{A}$-$\mathcal{B}$-双模.
-  - 用 $\mathcal{A}\text{-}\mathsf{Mod}\text{-}\mathcal{C}$ 表示分次 $\mathcal{A}$-$\mathcal{B}$-双模和0次双模同态的Abel范畴.
-  - 用 $\mathcal{A}\text{-}\mathsf{Mod}_{gr}\text{-}\mathcal{C}$ 表示分次 $\mathcal{A}$-$\mathcal{B}$-双模和所有次数的双模同态构成的分次范畴.
+  - 用 $\mathcal{A}\text{-}\mathsf{Mod}\text{-}\mathcal{B}$ 表示分次 $\mathcal{A}$-$\mathcal{B}$-双模和0次双模同态的Abel范畴.
+  - 用 $\mathcal{A}\text{-}\mathsf{Mod}_{\mathrm{gr}}\text{-}\mathcal{B}$ 表示分次 $\mathcal{A}$-$\mathcal{B}$-双模和所有次数的双模同态构成的分次范畴.
   - 将基环 $\Bbbk$ 视为只有一个对象的分次范畴. 则
     - 一个分次左 $\mathcal{A}$-模可以视为一个分次 $\mathcal{A}$-$\Bbbk$-双模;
     - 一个分次右 $\mathcal{A}$-模可以视为一个分次 $\Bbbk$-$\mathcal{A}$-双模.
@@ -125,15 +125,15 @@
 
 - 伴随同构: 给定分次双模 $_\mathcal{A}M_\mathcal{B}$, 我们有两个伴随对:
 
-  - $(M\otimes_\mathcal{B}-,\scHom_{\mathcal{A}}(M,-)):\mathcal{B}\text{-}\mathsf{Mod}_{gr}\text{-}\mathcal{C}\to\mathcal{A}\text{-}\mathsf{Mod}_{gr}\text{-}\mathcal{C}$;
-  - $(-\otimes_\mathcal{A}M,\scHom_{\mathcal{B}}(M,-)):\mathcal{C}\text{-}\mathsf{Mod}_{gr}\text{-}\mathcal{A}\to\mathcal{C}\text{-}\mathsf{Mod}_{gr}\text{-}\mathcal{B}$.
+  - $(M\otimes_\mathcal{B}-,\scHom_{\mathcal{A}}(M,-)):\mathcal{B}\text{-}\mathsf{Mod}_{\mathrm{gr}}\text{-}\mathcal{C}\to\mathcal{A}\text{-}\mathsf{Mod}_{\mathrm{gr}}\text{-}\mathcal{C}$;
+  - $(-\otimes_\mathcal{A}M,\scHom_{\mathcal{B}}(M,-)):\mathcal{C}\text{-}\mathsf{Mod}_{\mathrm{gr}}\text{-}\mathcal{A}\to\mathcal{C}\text{-}\mathsf{Mod}_{\mathrm{gr}}\text{-}\mathcal{B}$.
 
   取 $0$ 次分支, 我们得到两个伴随对:
 
   - $(M\otimes_\mathcal{B}-,\scHom_{\mathcal{A}}(M,-)):\mathcal{B}\text{-}\mathsf{Mod}\text{-}\mathcal{C}\to\mathcal{A}\text{-}\mathsf{Mod}\text{-}\mathcal{C}$;
   - $(-\otimes_\mathcal{A}M,\scHom_{\mathcal{B}}(M,-)):\mathcal{C}\text{-}\mathsf{Mod}\text{-}\mathcal{A}\to\mathcal{C}\text{-}\mathsf{Mod}\text{-}\mathcal{B}$.
 
-#### dg范畴
+### dg范畴
 
 - 一个 **[dg范畴]** 是一个 $\Bbbk$-线性范畴 $\mathcal{A}$, 使得
   - $\mathcal{A}$ 是分次范畴, 即 $\mathcal{A}$ 的每个态射空间都是分次 $\Bbbk$-模, 且复合保持分次;
@@ -142,17 +142,17 @@
   
 - 一个dg范畴 $\mathcal{A}$ 能给出许多新的范畴. 这些范畴的对象类都和 $\mathcal{A}$ 一样, 但态射各有不同:
 
-  - 一个分次 $\Bbbk$-范畴 $Z^\bullet\mathcal{A}$, 态射是 $(Z^\bullet\mathcal{A})(A,B)=Z^\bullet\mathcal{A}(A,B)$. 
-  - 一个 $\Bbbk$-范畴 $Z^0\mathcal{A}$, 称为 $\mathcal{A}$ 的 **[复形范畴]**, 态射是 $(Z^0\mathcal{A})(A,B)=Z^0\mathcal{A}(A,B)$.
-  - 一个分次 $\Bbbk$-范畴 $H^\bullet\mathcal{A}$, 态射是 $(H^\bullet\mathcal{A})(A,B)=H^\bullet\mathcal{A}(A,B)$.
-  - 一个 $\Bbbk$-范畴 $H^0\mathcal{A}$, 称为 $\mathcal{A}$ 的 **[同伦范畴]**, 态射是 $(H^0\mathcal{A})(A,B)=H^0\mathcal{A}(A,B)$.
+  - 一个分次 $\Bbbk$-范畴 $\mathrm{Z}^\bullet\mathcal{A}$, 态射是 $(\mathrm{Z}^\bullet\mathcal{A})(A,B)=\mathrm{Z}^\bullet\mathcal{A}(A,B)$. 
+  - 一个 $\Bbbk$-范畴 $\mathrm{Z}^0\mathcal{A}$, 称为 $\mathcal{A}$ 的 **[复形范畴]**, 态射是 $(\mathrm{Z}^0\mathcal{A})(A,B)=\mathrm{Z}^0\mathcal{A}(A,B)$.
+  - 一个分次 $\Bbbk$-范畴 $\mathrm{H}^\bullet\mathcal{A}$, 态射是 $(\mathrm{H}^\bullet\mathcal{A})(A,B)=\mathrm{H}^\bullet\mathcal{A}(A,B)$.
+  - 一个 $\Bbbk$-范畴 $\mathrm{H}^0\mathcal{A}$, 称为 $\mathcal{A}$ 的 **[同伦范畴]**, 态射是 $(\mathrm{H}^0\mathcal{A})(A,B)=\mathrm{H}^0\mathcal{A}(A,B)$.
 
-- 一个 **[dg函子]** $F:\mathcal{A}\to\mathcal{B}$ 是一个 $\Bbbk$-线性函子, 使得 $F(A,B):\mathcal{A}(A,B)\to\mathcal{B}(FA,FB)$ 都是链映射 $\forall A,B\in\mathcal{A}$. 任意dg函子 $F:\mathcal{A}\to\mathcal{B}$ 均诱导了下列函子: $Z^\bullet F,Z^0F,H^\bullet F,H^0F$.
+- 一个 **[dg函子]** $F:\mathcal{A}\to\mathcal{B}$ 是一个 $\Bbbk$-线性函子, 使得 $F(A,B):\mathcal{A}(A,B)\to\mathcal{B}(FA,FB)$ 都是链映射 $\forall A,B\in\mathcal{A}$. 任意dg函子 $F:\mathcal{A}\to\mathcal{B}$ 均诱导了下列函子: $\mathrm{Z}^\bullet F,\mathrm{Z}^0F,\mathrm{H}^\bullet F,\mathrm{H}^0F$.
 
-  - $F$ 是 **[dg本质满的]**, 如果 $Z^0F:Z^0\mathcal{A}\to Z^0\mathcal{B}$ 是本质满的.
+  - $F$ 是 **[dg本质满的]**, 如果 $\mathrm{Z}^0F:\mathrm{Z}^0\mathcal{A}\to \mathrm{Z}^0\mathcal{B}$ 是本质满的.
   - $F$ 是 **[dg等价]**, 如果 $F$ 是全忠实且dg本质满的.
-  - $F$ 是 **[拟全忠实的]**, 如果 $H^\bullet F:H^\bullet\mathcal{A}\to H^\bullet\mathcal{B}$ 是全忠实的.
-  - $F$ 是 **[拟等价]**, 如果 $F$ 是拟全忠实的, 且 $H^0F:H^0\mathcal{A}\to H^0\mathcal{B}$ 是本质满的.
+  - $F$ 是 **[拟全忠实的]**, 如果 $\mathrm{H}^\bullet F:\mathrm{H}^\bullet\mathcal{A}\to \mathrm{H}^\bullet\mathcal{B}$ 是全忠实的.
+  - $F$ 是 **[拟等价]**, 如果 $F$ 是拟全忠实的, 且 $\mathrm{H}^0F:\mathrm{H}^0\mathcal{A}\to \mathrm{H}^0\mathcal{B}$ 是本质满的.
 
 - 一个 **[dg自然变换]** $\gamma:F\to F':\mathcal{A}\to\mathcal{B}$ 是一族态射 $\gamma_A:FA\to GA$, 满足 $d_\mathcal{B}(\gamma_A)=0$, 且对 $\mathcal{A}$ 中的任意态射 $f:A\to B$ 均有 $G(f)\circ\gamma_A=\gamma_B\circ F(f)$.
 
@@ -174,7 +174,7 @@
 
 - 例: $\Bbbk$-模链复形的范畴 $\mathcal{C}(\Bbbk)$ 是一个dg范畴, 其中
 
-  - 对象: dg $\Bbbk$-模;
+  - 对象: $\Bbbk$-模链复形, 亦可称为dg $\Bbbk$-模;
   - 态射: 分次 $\Bbbk$-模同态;
   - 微分: 对于分次同态 $f:A\to B$, 规定 $d(f)=d_B\circ f-(-1)^{|f|}f\circ d_A$.
   - 复合: 通常意义下的的复合.
@@ -183,10 +183,10 @@
 
   - 对象: dg函子 $F:\mathcal{A}\to\mathcal{B}$;
   - 态射: 全体分次自然变换;
-  - 微分: 对于 $\gamma:F\to G$, 规定 $d(\gamma)_A=d(\gamma_A)=d_{GA}\circ\gamma_A+(-1)^{|\gamma|}\gamma_A\circ d_{FA}$ (可见 $Z^0\op{Fun}_{dg}(\mathcal{A},\mathcal{B})$ 中的态射, 就是dg自然变换);
+  - 微分: 对于 $\gamma:F\to G$, 规定 $d(\gamma)_A=d(\gamma_A)=d_{GA}\circ\gamma_A-(-1)^{|\gamma|}\gamma_A\circ d_{FA}$ (可见 $\mathrm{Z}^0\op{Fun}_{dg}(\mathcal{A},\mathcal{B})$ 中的态射, 就是dg自然变换);
   - 复合: 自然变换的通常复合.
 
-##### 左dg模
+#### 左dg模
 
 - dg范畴 $\mathcal{A}$ 上的一个 **[左dg模]** 是一个dg函子 $M:\mathcal{A}\to\mathcal{C}(\Bbbk)$, 或等价地:
 
@@ -214,8 +214,8 @@
 
   - $f$ 称为 **[链映射]**, 如果 $d(f)=0$ 且 $|f|=0$. 
   - 链映射 $f:M\to N$ 的 **[映射锥]** $\Cone(f)$, 是如下定义的左dg模:
-    - 作为分次模, $\Cone(f)=N\oplus M[1]$;
-    - 微分 $d_{\Cone(f)}=\begin{bmatrix}d_N&f\\0&d_{M[1]}\end{bmatrix}$.
+    - 作为分次模, $\Cone(f)=M[1]\oplus N$;
+    - 微分 $d_{\Cone(f)}=\begin{bmatrix}d_{M[1]}&0\\f&d_N\end{bmatrix}$.
   - 我们有链映射的分次可裂短正合列: $0\to N\xrightarrow{\left[\begin{smallmatrix}1\\0\end{smallmatrix}\right]}\Cone(f)\xrightarrow{\left[\begin{smallmatrix}0&1\end{smallmatrix}\right]}M[1]\to0$.
 
 - 定义 **[左dg $\mathcal{A}$-模的Abel范畴]** $\mathcal{A}\text{-}\mathsf{Mod}$:
@@ -228,10 +228,10 @@
 
   - 对象: 全体左dg $\mathcal{A}$-模;
   - 态射: 全体分次模同态, 态射集记为 $\scHom_{\mathcal{A}}(M,N)$ 的形式, 我们有 $\scHom_{\mathcal{A}}(M,N)=\bigoplus_{p\in\mathbb{Z}}\Hom_{\mathcal{A}}(M,N[p])$, 这里右端直和项是 $\mathcal{A}\text{-}\mathsf{Mod}$ 中的态射复形;
-  - 微分: 对于分次模同态 $f:M\to N$, 规定 $d(f)=d_N\circ f-(-1)^{|f|}f\circ d_M$; 显然我们有 $Z^0\scHom_{\mathcal{A}}(M,N)=\Hom_{\mathcal{A}}(M,N)$.
+  - 微分: 对于分次模同态 $f:M\to N$, 规定 $d(f)=d_N\circ f-(-1)^{|f|}f\circ d_M$; 显然我们有 $\mathrm{Z}^0\scHom_{\mathcal{A}}(M,N)=\Hom_{\mathcal{A}}(M,N)$.
   - 复合: 通常意义下的复合.
 
-##### 右dg模
+#### 右dg模
 
 - dg范畴 $\mathcal{A}$ 上的一个 **[右dg模]** 是一个dg函子 $M:\mathcal{A}^{\mathrm{op}}\to\mathcal{C}(\Bbbk)$. 
   - 模作用常记为 $m\cdot a$, 其中 $a\in\mathcal{A}^{\mathrm{op}}(A,B)$, $m\in\mathcal{A}^{\mathrm{op}}(A)$.
@@ -254,86 +254,82 @@
   - 更具体地: 
     - 对任意态射 $f:B\to C$ (视为 $\mathcal{A}$ 的元素) 和任意态射 $g:C\to A$ (视为 $\widehat A$ 的元素), 定义 $g\cdot f=\widehat A(f)(g)=(-1)^{|f||g|}g\circ f$.
     - 对任意态射 $g:C\to A$ (视为 $\widehat A$ 的元素), 定义 $d(g)=d_{\mathcal{A}}(g)$.
-  - $\widehat A$ 具有如下性质: 对任意dg $\mathcal{A}$-模 $M$, 有自然的复形同构 $\scHom_{\mathcal{A}}(\widehat A,M)\cong M(A)$, $f\mapsto f(A)(\mathbf1_A)$. 由此可知 $\Hom_{\mathcal{A}}(\widehat A,M)\cong Z^0M(A)$.
+  - $\widehat A$ 具有如下性质: 对任意dg $\mathcal{A}$-模 $M$, 有自然的复形同构 $\scHom_{\mathcal{A}}(\widehat A,M)\cong M(A)$, $f\mapsto f(A)(\mathbf1_A)$. 由此可知 $\Hom_{\mathcal{A}}(\widehat A,M)\cong \mathrm{Z}^0M(A)$.
 
-##### 双边dg模
+#### 双边dg模
 
 - 一个dg $\mathcal{A}$-$\mathcal{B}$-双模 $M$ 是一个左dg $\mathcal{A}\otimes\mathcal{B}^{\mathrm{op}}$-模. 
-
   - 更具体地讲, $M$ 同时是左dg $\mathcal{A}$-模和右dg $\mathcal{B}$-模, 且两个模结构在如下意义下相容: 对于 $m\in M(A\otimes B)$, $a:A\to A'$ 和 $b:B'\to B$, 我们有 $(a\cdot m)\cdot b=a\cdot(m\cdot b)$.
   - 一个dg $\mathcal{A}$-$\mathcal{B}$-双模也可以定义成一个右dg $\mathcal{A}^{\mathrm{op}}\otimes\mathcal{B}$-模.
   - 用 $_\mathcal{A}M_\mathcal{B}$ 表示 $M$ 是一个dg $\mathcal{A}$-$\mathcal{B}$-双模.
-  - 用 $\mathcal{A}\text{-}\mathsf{Mod}\text{-}\mathcal{C}$ 表示dg $\mathcal{A}$-$\mathcal{B}$-双模和0次双模同态的Abel范畴.
-  - 用 $\mathcal{A}\text{-}\mathsf{Mod}_{dg}\text{-}\mathcal{C}$ 表示dg $\mathcal{A}$-$\mathcal{B}$-双模和所有分次双模同态构成的dg范畴.
+  - 用 $\mathcal{A}\text{-}\mathsf{Mod}\text{-}\mathcal{B}$ 表示dg $\mathcal{A}$-$\mathcal{B}$-双模和0次双模同态的Abel范畴.
+  - 用 $\mathcal{A}\text{-}\mathsf{Mod}_{dg}\text{-}\mathcal{B}$ 表示dg $\mathcal{A}$-$\mathcal{B}$-双模和所有分次双模同态构成的dg范畴.
   - 将基环 $\Bbbk$ 视为只有一个对象的dg范畴. 则
     - 一个左dg $\mathcal{A}$-模可以视为一个dg $\mathcal{A}$-$\Bbbk$-双模;
     - 一个右dg $\mathcal{A}$-模可以视为一个dg $\Bbbk$-$\mathcal{A}$-双模.
-
 - 给定dg双模 $_\mathcal{A}M_\mathcal{B}$ 和 $_\mathcal{B}N_\mathcal{C}$. 我们定义一个dg $\mathcal{A}$-$\mathcal{C}$-双模 $M\otimes_\mathcal{B}N$, 称为 $M,N$ 的 **[张量积]**:
-
   - 对于 $A\in\mathcal{A}$ 和 $C\in\mathcal{C}$, 令 $(M\otimes_\mathcal{B}N)(A,C)$ $=$ $\mathop{\mathrm{Coker}}\left(\bigoplus\limits_{B,B'\in\mathcal{B}}M(A,B')\otimes\mathcal{B}(B,B')\otimes N(B,C)\to\bigoplus\limits_{B\in\mathcal{B}}M(A,B)\otimes N(B,C)\right)$, 括号内部的映射定义为 $m\otimes b\otimes n\mapsto(m\cdot b)\otimes n-m\otimes(b\cdot n)$.
   - 对于 $\mathcal{A}$ 中态射 $a$ 和 $\mathcal{C}$ 中态射 $c$, 态射 $(M\otimes_\mathcal{B}N)(a\otimes c)$ 的定义由上述 Coker 的泛性质给出. 容易验证这些数据给出了一个dg $\mathcal{A}$-$\mathcal{C}$-双模.
-
 - 给定dg双模 $_\mathcal{A}M_\mathcal{B}$ 和 $_\mathcal{A}N_\mathcal{C}$. 我们定义一个dg $\mathcal{B}$-$\mathcal{C}$-双模 $\scHom_{\mathcal{A}}(M,N)$:
-
   - 对于 $B\in\mathcal{B}$ 和 $C\in\mathcal{C}$, 我们可以将 $M(-,B)$ 和 $N(-,C)$ 视为左dg $\mathcal{A}$-模. 于是, 我们令 $(\scHom_{\mathcal{A}}(M,N))(B,C)$ $=$ $\scHom_{\mathcal{A}}(M(-,B),N(-,C))$.
-  - $Z^0\scHom_{\mathcal{A}}(M,N)\cong\Hom_{\mathcal{A}}(M,N)$.
+  - $\mathrm{Z}^0\scHom_{\mathcal{A}}(M,N)\cong\Hom_{\mathcal{A}}(M,N)$.
   - 对于 $\mathcal{B}$ 中态射 $b$ 和 $\mathcal{C}$ 中态射 $c$, 态射 $(\scHom_{\mathcal{A}}(M,N))(b\otimes c)$ 由 $M(-,b),N(-,c)$ 给出. 容易验证这些数据给出了一个dg $\mathcal{B}$-$\mathcal{C}$-双模.
-
 - 类似地, 给定dg双模 $_\mathcal{A}M_\mathcal{C}$ 和 $_\mathcal{B}N_\mathcal{C}$, 我们可以定义一个dg $\mathcal{B}$-$\mathcal{A}$-双模 $\scHom_{\mathcal{C}}(M,N)$.
-
 - 伴随同构: 给定dg双模 $_\mathcal{A}M_\mathcal{B}$, 我们有两个伴随对:
-
-  - $(M\otimes_\mathcal{B}-,\scHom_{\mathcal{A}}(M,-)):\mathcal{B}\text{-}\mathsf{Mod}_{dg}\text{-}\mathcal{C}\to\mathcal{A}\text{-}\mathsf{Mod}_{dg}\text{-}\mathcal{C}$;
-  - $(-\otimes_\mathcal{A}M,\scHom_{\mathcal{B}}(M,-)):\mathcal{C}\text{-}\mathsf{Mod}_{dg}\text{-}\mathcal{A}\to\mathcal{C}\text{-}\mathsf{Mod}_{dg}\text{-}\mathcal{B}$.
-
-  取 $Z^0$, 我们得到两个伴随对:
-
+  - $(M\otimes_\mathcal{B}-,\scHom_{\mathcal{A}}(M,-)):\mathcal{B}\text{-}\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{C}\to\mathcal{A}\text{-}\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{C}$;
+  - $(-\otimes_\mathcal{A}M,\scHom_{\mathcal{B}}(M,-)):\mathcal{C}\text{-}\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{A}\to\mathcal{C}\text{-}\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{B}$.
+  
+  取 $\mathrm{Z}^0$, 我们得到两个伴随对:
   - $(M\otimes_\mathcal{B}-,\scHom_{\mathcal{A}}(M,-)):\mathcal{B}\text{-}\mathsf{Mod}\text{-}\mathcal{C}\to\mathcal{A}\text{-}\mathsf{Mod}\text{-}\mathcal{C}$;
   - $(-\otimes_\mathcal{A}M,\scHom_{\mathcal{B}}(M,-)):\mathcal{C}\text{-}\mathsf{Mod}\text{-}\mathcal{A}\to\mathcal{C}\text{-}\mathsf{Mod}\text{-}\mathcal{B}$.
 
   证明提示: 转化到有足够多正交幂等元的dg代数上, 再证明伴随同构.
-
+- 给定dg函子 $F:\mathcal{A}\to\mathcal{B}$, 我们有伴随三元组 $F_!\dashv F^*\dashv F_*:\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{A}\to\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{B}$, 其中
+  - $F^*:\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{B}\to\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{A}$ 是由复合给出的: $M\mapsto M\circ F$;
+  - $F_!:\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{A}\to\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{B}$ 定义为 $F_!=-\otimes_\mathcal{A}{}_\mathcal{A}\mathcal{B}_\mathcal{B}$.
+  - $F_*:\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{A}\to\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{B}$ 定义为 $F_*=\Hom_\mathcal{A}({}_\mathcal{A}\mathcal{B}_\mathcal{B},-)$;
+  
+  取 $\mathrm{Z}^0$, 我们得到伴随三元组 $F_!\dashv F^*\dashv F_*:\mathsf{Mod}\text{-}\mathcal{A}\to\mathsf{Mod}\text{-}\mathcal{B}$.
 - 两个常用同构: 对于 $A\in\mathcal{A}$  和左dg $\mathcal{A}$-模 $M$, 有
-
   - $\widehat{A}\otimes_\mathcal{A}M\cong M(A)$.
     - **[证明]** 对任意 $\Bbbk$-复形 $N$, 我们有伴随同构 $\scHom_{\Bbbk}(\widehat{A}\otimes_\mathcal{A}M,N)$ $\cong$ $\scHom_{\mathcal{A}}(\widehat{A},\scHom_\Bbbk(M,N))$. 这里 $\scHom_\Bbbk(M,N)$ 是一个右dg $\mathcal{A}$-模, 因此Yoneda引理给出 $\scHom_{\mathcal{A}}(\widehat{A},\scHom_\Bbbk(M,N))$ $\cong$ $\scHom_\Bbbk(M(A),N)$. **[证毕]**
+    - **[推论]** 给定dg函子 $F:\mathcal{A}\to\mathcal{B}$, 则 $F_!(\widehat A)\cong\widehat{F(A)}$.
   - $\scHom_{\mathcal{A}}(\mathcal{A}(A,-),M)\cong M(A)$.
     - **[证明]** 对任意 $\Bbbk$-复形 $N$, 我们有伴随同构 $\scHom_{\Bbbk}(N,\scHom_{\mathcal{A}}(\mathcal{A}(A,-),M))$ $\cong$ $\scHom_{\mathcal{A}}(N\otimes\mathcal{A}(A,-),M)$ $\cong$ $\scHom_{\Bbbk}(\mathcal{A}(A,-),\scHom_{\mathcal{A}}(N,M))$. 这里 $\scHom_\Bbbk(N,M)$ 是一个左dg $\mathcal{A}$-模, 因此左模版本的Yoneda引理给出 $\scHom_{\Bbbk}(\mathcal{A}(A,-),\scHom_{\mathcal{A}}(N,M))$ $\cong$ $\scHom_\Bbbk(N,M(A))$. **[证毕]**
 
-### 同伦范畴
+## 同伦范畴
 
 本节只考虑右dg模, 左模情形是完全对偶的.
 
-#### 同伦范畴 $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$
+### 同伦范畴 $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$
 
-##### 同伦
+#### 同伦
 
 - 设 $\mathcal{A}$ 是一个dg范畴, $M,N$ 是右dg $\mathcal{A}$-模. 
   - 两个链映射 $f,g:M\to N$ 称为 **[同伦的]**, 如果存在 $-1$ 次分次同态 $h:M\to N$, 使得 $f-g=d(h)=d_N\circ h+h\circ d_M$.
   - 等价地, $f,g$ 是同伦的, 如果在 $\scHom_{\mathcal{A}}(M,N)$ 中, $f,g$ 给出同一个 $0$-上同调类.
   - 容易验证: 同伦是一个同余关系.
 
-##### 同伦范畴
+#### 同伦范畴
 
-- 右dg模范畴 $\mathsf{Mod}\text{-}\mathcal{A}$ 的 **[同伦范畴]** $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$ 定义为 $H^0(\mathsf{Mod}_{dg}\text{-}\mathcal{A})$, 更具体地:
+- 右dg模范畴 $\mathsf{Mod}\text{-}\mathcal{A}$ 的 **[同伦范畴]** $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$ 定义为 $\mathrm{H}^0(\mathsf{Mod}_{dg}\text{-}\mathcal{A})$, 更具体地:
   - 对象: 和 $\mathsf{Mod}\text{-}\mathcal{A}$ 一样, 是所有的右dg $\mathcal{A}$-模;
   - 态射: $\Hom_{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}(M,N)=\Hom_{\mathcal{A}}(M,N)/\sim$, 其中 $\sim$ 是同伦关系.
-  - 复合: 同伦类的复合 ($\sim$ 是同余关系保证了这是良定义的).
+  - 复合: 同伦类的复合 ($\sim$ 是同余关系保证了复合是良定义的).
 - $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$ 是三角范畴.
   - $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$ 中的好三角刻画如下: 对于链复形的分次可裂短正合列 $0\to L\xrightarrow{u}M\xrightarrow{v}N\to0$, 存在一个好三角 $L\xrightarrow{u}M\xrightarrow{v}N\xrightarrow{w}L[1]$, 其中 $w=\pi\circ d_M\circ s$, 其中 $s$ 是 $v$ 的一个截面, $\pi$ 是 $u$ 的一个收缩. 在同伦范畴里 $w$ 不依赖于 $\pi,s$ 的选取. 任何好三角都同构于一个这样给出的三角.
   - 有多种证法:
     - 对于dg代数的的dg模范畴, 章璞《三角范畴与导出范畴》第二章1-5节基本上可以照搬过来; 而对于dg范畴 $\mathcal{A}$, 也可以转化到 $\tilde{\mathcal{A}}$ 的dg幺模范畴中进行证明.
     - Keller《Deriving DG categories》第2.2小节，将 $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$ 实现为一个Frobenius范畴的稳定三角范畴.
-- **[关键公式]**: $\Hom_{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}(M[m],N[n])\cong H^{n-m}\scHom_{\mathcal{A}}(M,N)$. 见章璞《三角范畴与导出范畴》第2.7节.
+- **[关键公式]**: $\Hom_{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}(M[m],N[n])\cong \mathrm{H}^{n-m}\scHom_{\mathcal{A}}(M,N)$. 见章璞《三角范畴与导出范畴》第2.7节.
 
-#### dg模的分解
+### dg模的分解
 
-##### 同伦投射分解
+#### 同伦投射分解
 
 - dg $\mathcal{A}$-模 $P$ 称为 **[同伦投射模]**, 如果对任意零调dg模 $N$ 有 $\Hom_{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}(P,N)=0$.
   - 例: 若 $\mathcal{A}$ 是普通代数 (无分次, 无微分), 则一个上有界投射复形是一个同伦投射复形.
-  - 例: 对任意对象 $A\in\mathcal{A}$ 和整数 $k$, 模 $\widehat{A}[k]$ 是同伦投射模, 因为 $\Hom_{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}(\widehat{A}[k],N)\cong H^{-k}\scHom_{\mathcal{A}}(\widehat{A},N)\cong H^{-k}N(A)=0$.
+  - 例: 对任意对象 $A\in\mathcal{A}$ 和整数 $k$, 模 $\widehat{A}[k]$ 是同伦投射模, 因为 $\Hom_{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}(\widehat{A}[k],N)\cong \mathrm{H}^{-k}\scHom_{\mathcal{A}}(\widehat{A},N)\cong \mathrm{H}^{-k}N(A)=0$.
 - dg $\mathcal{A}$-模 $M$ 的一个 **[同伦投射分解]** 是一个拟同构的链映射 $\mathbf{p}M\to M$.
 
 **[定理]** 对任意dg模 $M$, 存在一个好三角 $\mathbf{p}M\to M\to\mathbf{a}M\to\mathbf{p}M[1]$, 其中 $\mathbf{p}M$ 是一个同伦投射复形, $\mathbf{a}M$ 是一个零调复形.
@@ -362,7 +358,7 @@ $$
 - $Z(P)\to Z(M)$ 也是满射;
 - 存在分次可裂短正合列 $0\to P'\to P\to P''\to0$, 使得 $P',P''$ 都同构于若干个 $P_i$ 的平移的直和.
 
-为此, 对任意 $m\in M$ ($|m|=k$), 由幺性不妨设存在 $i\in I$ 使得 $m\in e_iM$, 我们构造一个dg-模 $P_m$ 如下. 作为分次模, $P_m=P(i)[-k]\oplus P(i)[-k-1]$, 记生成元 $x=e_i[-k],y=e_i[-k-1]$, 我们规定微分为 $d(x)=y$, $d(y)=0$. 定义dg-模同态 $P_m\to M$, 使得 $x\mapsto m$, $y\mapsto d(m)$. 对所有 $m$ 都构造这样的 $P_m\to M$, 则显然 $\bigoplus_{m\in M}P_m\to M$ 是满射. 另一方面, 对任意 $m\in Z(M)$ ($|m|=k$), 构造一个dg-模 $Q_m$ 如下. 作为分次模, $Q_m=P(i[-k])$, 记生成元 $x=e_i[-k]$, 规定微分为 $d(x)=0$. 定义dg-模同态 $Q_m\to M$, 使得 $x\mapsto m$. 则 $Z(\bigoplus_{m\in Z(M)}Q_m)\to Z(M)$ 是满射. 令 $P=\bigoplus_{m\in M}P_m\oplus\bigoplus_{m\in Z(M)}Q_m$, 容易看出 $P\to M$ 符合要求.
+为此, 对任意 $m\in M$ ($|m|=k$), 由幺性不妨设存在 $i\in I$ 使得 $m\in e_iM$, 我们构造一个dg-模 $P_m$ 如下. 作为分次模, $P_m=P(i)[-k]\oplus P(i)[-k-1]$, 记生成元 $x=e_i[-k],y=e_i[-k-1]$, 我们规定微分为 $d(x)=y$, $d(y)=0$. dg-模同态 $P_m\to M$ 使得 $x\mapsto m$, $y\mapsto d(m)$. 对所有 $m$ 都构造这样的 $P_m\to M$, 则显然 $\bigoplus_{m\in M}P_m\to M$ 是满射. 另一方面, 对任意 $m\in Z(M)$ ($|m|=k$), 构造一个dg-模 $Q_m$ 如下. 作为分次模, $Q_m=P(i[-k])$, 记生成元 $x=e_i[-k]$, 规定微分为 $d(x)=0$. 则存在唯一的dg-模同态 $Q_m\to M$ 使得 $x\mapsto m$. 则 $Z(\bigoplus_{m\in Z(M)}Q_m)\to Z(M)$ 是满射. 令 $P=\bigoplus_{m\in M}P_m\oplus\bigoplus_{m\in Z(M)}Q_m$, 容易看出 $P\to M$ 符合要求.
 
 <u>**第三步**</u>: 对任意dg模 $M$, 我们记 $M_0=M$ 并递归构造短正合列 $0\to M_{i+1}\to P_i\to M_i\to0$, 其中 $P_i\to M_i$ 符合第二步的条件. 我们就得到了dg模的复形 $A^{\bullet\bullet}=(\cdots\to P_2\xrightarrow{f_2}P_1\xrightarrow{f_1}P_0\to M\to0)$. 容易看出这是一个正合列, 且 $\cdots\to Z(P_2)\xrightarrow{f_2}Z(P_1)\xrightarrow{f_1}Z(P_0)\to Z(M)\to0$ 也是正合列. 
 
@@ -370,7 +366,7 @@ $$
 
 先证 $P$ 是同伦投射模. 根据第一步, 我们来构造 $P$ 的一个过滤 $(F_pP)_{p\geq0}$. 我们定义 $F_{2p}P=\mathop{\mathrm{Tot}}(P^{\bullet\bullet}_{\leq p})$, 其中  $P^{\bullet\bullet}_{\leq p}=(\cdots\to0\to P_p\to\cdots\to P_2\xrightarrow{f_2}P_1\xrightarrow{f_1}P_0\to0)$ 是左截断. 利用第二步中的正合列 $0\to P'_{p+1}\to P_{p+1}\to P''_{p+1}\to0$, 我们定义 $F_{2p+1}P=\mathop{\mathrm{Tot}}(\cdots\to0\to P'_{p+1}\to P_p\to\cdots\to P_2\xrightarrow{f_2}P_1\xrightarrow{f_1}P_0\to0)$. 不难发现, 这些 $F_pP$ 都是 $P$ 的dg子模, 且由第二步的构造可知 $(F_pP)_{p\geq0}$ 满足条件 (2)(3). 因此, $P$ 满足性质 (P), 从而是同伦投射模.
 
-然后我们证明 $P\to M$ 是拟同构. 为此只需证明 $\mathop{\mathrm{Tot}}(A^{\bullet\bullet})$ 是零调的. 对任意复形 $L$ 和整数 $n\in\mathbb{Z}$, 定义截断复形 $\tau_{\leq n}L=(\cdots\to L^{n-2}\to L^{n-1}\to Z^{n-1}(L)\to0)$. 我们定义截断双复形 $\tau_{\leq n}A^{\bullet\bullet}=(\cdots\to\tau_{\leq n}P_2\xrightarrow{f_2}\tau_{\leq n}P_1\xrightarrow{f_1}\tau_{\leq n}P_0\to\tau_{\leq n}M\to0)$. 显然 $\mathop{\mathrm{Tot}}(A^{\bullet\bullet})=\mathop{\mathrm{colim}}_n\mathop{\mathrm{Tot}}(\tau_{\leq n}A^{\bullet\bullet})$. 因为 $\tau_{\leq n}A^{\bullet\bullet}$ 是第三象限双复形, 且由构造可知它是行正合的, 由谱序列可知 $\mathop{\mathrm{Tot}}(\tau_{\leq n}A^{\bullet\bullet})$ 是零调的. 因为正向极限与同调可交换, 所以 $\mathop{\mathrm{Tot}}(A^{\bullet\bullet})$ 是零调的. 
+然后我们证明 $P\to M$ 是拟同构. 为此只需证明 $\mathop{\mathrm{Tot}}(A^{\bullet\bullet})$ 是零调的. 对任意复形 $L$ 和整数 $n\in\mathbb{Z}$, 定义截断复形 $\tau_{\leq n}L=(\cdots\to L^{n-2}\to L^{n-1}\to \mathrm{Z}^{n-1}(L)\to0)$. 我们定义截断双复形 $\tau_{\leq n}A^{\bullet\bullet}=(\cdots\to\tau_{\leq n}P_2\xrightarrow{f_2}\tau_{\leq n}P_1\xrightarrow{f_1}\tau_{\leq n}P_0\to\tau_{\leq n}M\to0)$. 显然 $\mathop{\mathrm{Tot}}(A^{\bullet\bullet})=\colim_n\mathop{\mathrm{Tot}}(\tau_{\leq n}A^{\bullet\bullet})$. 因为 $\tau_{\leq n}A^{\bullet\bullet}$ 是第三象限双复形, 且由构造可知它是行正合的, 由谱序列可知 $\mathop{\mathrm{Tot}}(\tau_{\leq n}A^{\bullet\bullet})$ 是零调的. 因为正向极限与同调可交换, 所以 $\mathop{\mathrm{Tot}}(A^{\bullet\bullet})$ 是零调的. 
 
 我们取 $\mathbf{p}M=P,\mathbf{a}M=\mathop{\mathrm{Tot}}(A^{\bullet\bullet})$ 即可. **[证毕]**
 
@@ -386,11 +382,11 @@ $$
 
 **[证明]** 充分性: 在上一定理中, 我们证明了一个具有性质 (P) 的dg模是同伦投射的, 从而此时 $P$ 也是同伦投射的. 必要性: 设 $P$ 是同伦投射的, 根据上述定理的证明, 存在一个拟同构 $\mathbf{p}P\to P$, 其中 $\mathbf{p}P$ 具有性质 (P). 要证明这是一个同伦等价, 只需证明其映射锥是零伦的. 问题转化为证明: 一个零调的同伦投射模 $M$ 是零伦的. 实际上, $M$ 的双重特性保证了 $\Hom_{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}(M,M)=0$. **[证毕]**
 
-##### 同伦内射分解
+#### 同伦内射分解
 
 - dg $\mathcal{A}$-模 $I$ 称为 **[同伦内射模]**, 如果对任意零调dg模 $N$ 有 $\Hom_{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}(N,I)=0$.
   - 例: 若 $\mathcal{A}$ 是普通代数 (无分次, 无微分), 则一个下有界内射复形是一个同伦内射复形.
-  - 例: 取 $\Bbbk\text{-}\mathsf{Mod}$ 的一个内射余生成子 $E$. 对任意对象 $A\in\mathcal{A}$, 定义右dg $\mathcal{A}$-模 $\check A=\scHom_{\Bbbk}(\mathcal{A}(A,-),E)$. 则对任意整数 $k$, 模 $\check{A}[k]$ 是同伦内射模. 实际上, $\Hom_{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}(N,\check{A}[k])\cong H^k\scHom_{\mathcal{A}}(N,\check{A})$, 其中 $\scHom_{\mathcal{A}}(N,\check{A})$ $\cong $ $ \scHom_{\Bbbk}(N\otimes\mathcal{A}(A,-),E)$ $\cong $ $\scHom_{\mathcal{A}}(\mathcal{A}(A,-),\scHom_{\mathcal{A}}(N,E))$ $\cong $ $\scHom_\Bbbk(N(A),E)$, 最后一步同构是Yoneda引理. 因为 $N$ 是零调模, 且 $E$ 是内射 $\Bbbk$-模, 所以 $\scHom_\Bbbk(N(A),E)$ 是正合 $\Bbbk$-复形, 同调群为零. 证毕.
+  - 例: 取 $\Bbbk\text{-}\mathsf{Mod}$ 的一个内射余生成子 $E$. 对任意对象 $A\in\mathcal{A}$, 定义右dg $\mathcal{A}$-模 $\check A=\scHom_{\Bbbk}(\mathcal{A}(A,-),E)$. 则对任意整数 $k$, 模 $\check{A}[k]$ 是同伦内射模. 实际上, $\Hom_{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}(N,\check{A}[k])$ $\cong$ $\mathrm{H}^k\scHom_{\mathcal{A}}(N,\check{A})$, 其中 $\scHom_{\mathcal{A}}(N,\check{A})$ $\cong$ $\scHom_{\Bbbk}(N\otimes\mathcal{A}(A,-),E)$ $\cong$ $\scHom_{\mathcal{A}}(\mathcal{A}(A,-),\scHom_{\mathcal{A}}(N,E))$ $\cong$ $\scHom_\Bbbk(N(A),E)$, 最后一步同构是Yoneda引理. 因为 $N$ 是零调模, 且 $E$ 是内射 $\Bbbk$-模, 所以 $\scHom_\Bbbk(N(A),E)$ 是正合 $\Bbbk$-复形, 同调群为零. **[证毕]**
 - dg $\mathcal{A}$-模 $M$ 的一个 **[同伦内射分解]** 是一个拟同构的链映射 $M\to\mathbf{i}M$.
 
 以下两个定理的证明, 与同伦投射分解的情形类似, 我们只给出陈述, 不再证明.
@@ -407,7 +403,7 @@ $$
 - (2) 每个商同态 $I/F_{p+1}I\to I/F_pI$ 都是分次可裂满的;
 - (3) 商 $F_pI/F_{p+1}I$ 同构于若干个 $\check{A}$ ($A\in\mathcal{A}$) 的平移的直积. **[证明略]**
 
-##### 分解函子
+#### 分解函子
 
 - 通过选定同伦投射分解, 可得函子 $\mathbf{p}:\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{H}(\mathsf{hProj}\text{-}\mathcal{A})$, 这里 $\mathsf{hProj}\text{-}\mathcal{A}$ 是全体右dg同伦投射模的加法范畴.
 
@@ -431,18 +427,18 @@ $$
 
 - 类似地, $\mathbf{a}'$ 可以做成一个函子 $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{H}(\mathsf{Mod}_{\mathrm{ac}}\text{-}\mathcal{A})$.
 
-### 导出范畴
+## 导出范畴
 
-#### 导出范畴 $\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})$
+### 导出范畴 $\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})$
 
 - 右dg模范畴 $\mathsf{Mod}\text{-}\mathcal{A}$ 的 **[导出范畴]** $\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})$ 定义为Verdier商范畴 $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})[\text{q.is.}^{-1}]$. 将典范商函子记为 $\mathrm{can}:\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})$.
 
 - 我们有函子:
 
-  - 同伦投射分解 $\mathbf{p}:\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$, 像为同伦投射模. 
+  - 同伦投射分解 $\mathbf{p}:\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$, 像为同伦投射模构成的全子范畴. 
     - 实际上 $\mathbf{p}$ 诱导了三角等价 $\mathbf{p}:\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{H}(\mathsf{hProj}\text{-}\mathcal{A})$;
     - 有伴随对 $\mathrm{can}\dashv\mathbf{p}:\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})$.
-  - 同伦投射分解 $\mathbf{i}:\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$, 像为同伦内射模.
+  - 同伦内射分解 $\mathbf{i}:\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$, 像为同伦内射模构成的全子范畴.
     - 实际上 $\mathbf{i}$ 诱导了三角等价 $\mathbf{i}:\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{H}(\mathsf{hInj}\text{-}\mathcal{A})$;
     - 有伴随对 $\mathbf{i}\dashv\mathrm{can}:\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$.
   - 零调分解 $\mathbf{a}:\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{H}(\mathsf{Mod}_{\mathrm{ac}}\text{-}\mathcal{A})$;
@@ -451,7 +447,7 @@ $$
 
 - 我们有粘合:
   $$
-  \begin{xymatrix}
+  \begin{xy}
   (0,0)	*+{\mathbf{H}(\mathsf{Mod}_{\mathrm{ac}}\text{-}\mathcal{A})}="1",
   (60,0)	*+{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}="2",
   (120,0)	*+{\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A}).}="3",
@@ -461,14 +457,14 @@ $$
   \ar@/_15pt/ _{\mathbf{p}}	"3";"2"
   \ar			|{\mathrm{can}}	"2";"3"
   \ar@/^15pt/ ^{\mathbf{i}}	"3";"2"
-  \end{xymatrix}
+  \end{xy}
   $$
 
-#### 完美导出范畴
+### 完美导出范畴
 
 - 回顾: 在三角范畴 $\mathcal{T}$ 中:
-  - 一个对象 $X$ 称为 **[小对象]**, 如果 $\mathcal{T}(X,-)$ 与任意直和可交换.
-  - 全体小对象关于同构、平移、映射锥、直和项封闭, 因此构成一个厚子范畴, 记为 $\mathcal{T}^c$.
+  - 一个对象 $X$ 称为 **[紧对象]**, 如果 $\mathcal{T}(X,-)$ 与任意直和可交换.
+  - 全体紧对象关于同构、平移、映射锥、直和项封闭, 因此构成一个厚子范畴, 记为 $\mathcal{T}^c$.
   - 一族对象的类 $\mathcal{X}\subseteq\mathcal{T}$ 称为 **[生成子]**, 如果包含 $\mathcal{X}$ 的最小三角子范畴就是 $\mathcal{T}$.
   - 三角范畴 $\mathcal{T}$ 称为 **[紧生成的]**, 如果
     - $\mathcal{T}$ 有任意直和;
@@ -478,8 +474,8 @@ $$
     - $\mathcal{T}$ 是包含 $\mathcal{X}$ 且关于同构、平移、映射锥、任意直和均封闭的最小三角子范畴.
     - $\mathcal{T}^c$ 是包含 $\mathcal{X}$ 且关于同构、平移、映射锥、均封闭的最小厚子范畴.
     - 若上同调函子 $H:\mathcal{T}\to\mathsf{Ab}$ 将直和变为直积, 则 $H$ 是一个反变可表函子.
-- $\mathsf{Mod}\text{-}\mathcal{A}$ 的 **[完美导出范畴]** $\mathsf{perf}(\mathsf{Mod}\text{-}\mathcal{A})$ 是 $\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})$ 中全体小对象构成的厚子范畴.
-  - $\widehat{A}$ ($A\in\mathcal{A}$) 都是 $\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})$ 中的小对象, 这是因为 $\Hom_{\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})}(\widehat{A},\bigoplus M_i)$ $\cong$ $\Hom_{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}(\widehat{A},\bigoplus M_i)$ $\cong$ $H^0(\bigoplus M_i(A))$ $\cong$ $\bigoplus H^0M_i(A)$ $\cong$ $\bigoplus\Hom_{\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})}(\widehat{A},M_i)$. 它们的平移也是小对象.
+- $\mathsf{Mod}\text{-}\mathcal{A}$ 的 **[完美导出范畴]** $\mathsf{perf}(\mathsf{Mod}\text{-}\mathcal{A})$ 是 $\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})$ 中全体紧对象构成的厚子范畴.
+  - $\widehat{A}$ ($A\in\mathcal{A}$) 都是 $\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})$ 中的紧对象, 这是因为 $\Hom_{\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})}(\widehat{A},\bigoplus M_i)$ $\cong$ $\Hom_{\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})}(\widehat{A},\bigoplus M_i)$ $\cong$ $\mathrm{H}^0(\bigoplus M_i(A))$ $\cong$ $\bigoplus \mathrm{H}^0M_i(A)$ $\cong$ $\bigoplus\Hom_{\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})}(\widehat{A},M_i)$. 它们的平移也是紧对象.
   - 不难验证, $\widehat{A}$ ($A\in\mathcal{A}$) 是 $\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})$ 的一族紧生成子.
   - 由Brown可表性定理, $\mathsf{perf}(\mathsf{Mod}\text{-}\mathcal{A})$ 是 $\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})$ 中包含 $\widehat{A}$ ($A\in\mathcal{A}$) 的最小厚子范畴.
 
@@ -489,9 +485,9 @@ $$
   - (3) $F$ 是等价函子, 当且仅当 $F|\mathsf{perf}(\mathsf{Mod}\text{-}\mathcal{A})$ 是全忠实函子, 且 $F\widehat A$ ($A\in\mathcal{A}$) 构成 $\mathcal{T}$ 的一族紧生成子.
   - (4) 自然变换 $\gamma:F\to F'$ 是可逆的, 当且仅当每个 $\gamma_{\widehat{A}}$ ($A\in\mathcal{A}$) 都是同构. **[证明略]**
 
-#### 导出函子
+### 导出函子
 
-##### 左导出函子
+#### 左导出函子
 
 - 对任意dg $\mathcal{A}$-$\mathcal{B}$-双模 $X$, dg函子 $-\otimes_{\mathcal{A}}X:\mathsf{Mod}\text{-}\mathcal{A}\to\mathsf{Mod}\text{-}\mathcal{B}$ 保持同伦和映射锥, 从而诱导了三角函子 $-\otimes_{\mathcal{A}}X:\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{B})$. 我们定义 **[导出张量积函子]** $-\otimes_\mathcal{A}^\mathbf{L}X:\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})\to\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{B})$ 为如下复合函子 (第二行箭头理解为 $\mapsto$):
 
@@ -520,12 +516,12 @@ $$
 
 - 例: 任意dg函子 $F:\mathcal{A\to B}$ 均诱导了dg函子 $F^*:\mathsf{Mod}\text{-}\mathcal{B}\to\mathsf{Mod}\text{-}\mathcal{A}$, 从而有左导出函子 $\mathbf{L}F^*:\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{B})\to\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})$. 若 $F$ 是拟等价, 我们来证明 $\mathbf{L}F^*$ 是三角等价.
 
-  - 根据拟等价的定义, 对任意 $B\in\mathcal{B}$, 存在 $A\in\mathcal{A}$ 和 $0$-次态射 $f:FA\to B$ 使得 $H^0(f)$ 是 $H^0\mathcal{B}$ 中的同构.
-  - 对任意 $B\in\mathcal{B}$, 取 $A,f$ 如上. 定义dg模同态 $f_*:\widehat{A}\to F^*\widehat{B}$ 为如下的复合: $\widehat{A}=\mathcal{A}(-,A)\xrightarrow{F}\mathcal{B}(F(-),FA)\xrightarrow{f\circ}\mathcal{B}(F(-),B)=F^*\widehat{B}$. 因为 $F$ 是拟等价, $f$ 是 $H^0\mathcal{B}$ 中的同构, 所以 $f_*$ 是拟同构. 因此 $\mathbf{L}F^*$ 将一族紧生成子映为一族紧生成子.
-  - 对任意 $B,B'\in\mathcal{B}$, 取 $A,A'\in\mathcal{A}$ 使得在 $H^0\mathcal{B}$ 中 $FA\cong B$, $FA'\cong B'$. 则 $\mathcal{A}(A,A')\xrightarrow{F}\mathcal{B}(FA,FA')\to\mathcal{B}(B,B')$ 是两个拟同构的复合. 从而 $\Hom_{\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{B})}(\widehat{B},\widehat{B'}[k])$ $\xrightarrow{F^*}$ $\Hom_{\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})}(F^*\widehat{B},F^*\widehat{B'}[k])$ $\xrightarrow{\text{q.is.}}$ $\Hom_{\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})}(\widehat{A},\widehat{A'}[k])$ 是同构. 因此 $F^*|\mathsf{perf}(\mathsf{Mod}\text{-}\mathcal{B})$ 是全忠实的.
+  - 根据拟等价的定义, 对任意 $B\in\mathcal{B}$, 存在 $A\in\mathcal{A}$ 和 $0$-次态射 $f:FA\to B$ 使得 $\mathrm{H}^0(f)$ 是 $\mathrm{H}^0\mathcal{B}$ 中的同构.
+  - 对任意 $B\in\mathcal{B}$, 取 $A,f$ 如上. 定义dg模同态 $f_*:\widehat{A}\to F^*\widehat{B}$ 为如下的复合: $\widehat{A}=\mathcal{A}(-,A)\xrightarrow{F}\mathcal{B}(F(-),FA)\xrightarrow{f\circ}\mathcal{B}(F(-),B)=F^*\widehat{B}$. 因为 $F$ 是拟等价, $f$ 是 $\mathrm{H}^0\mathcal{B}$ 中的同构, 所以 $f_*$ 是拟同构. 因此 $\mathbf{L}F^*$ 将一族紧生成子映为一族紧生成子.
+  - 对任意 $B,B'\in\mathcal{B}$, 取 $A,A'\in\mathcal{A}$ 使得在 $\mathrm{H}^0\mathcal{B}$ 中 $FA\cong B$, $FA'\cong B'$. 则 $\mathcal{A}(A,A')\xrightarrow{F}\mathcal{B}(FA,FA')\to\mathcal{B}(B,B')$ 是两个拟同构的复合. 从而 $\Hom_{\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{B})}(\widehat{B},\widehat{B'}[k])$ $\xrightarrow{F^*}$ $\Hom_{\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})}(F^*\widehat{B},F^*\widehat{B'}[k])$ $\xrightarrow{\text{q.is.}}$ $\Hom_{\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})}(\widehat{A},\widehat{A'}[k])$ 是同构. 因此 $F^*|\mathsf{perf}(\mathsf{Mod}\text{-}\mathcal{B})$ 是全忠实的.
   - 由dévissage, $F^*$ 是三角等价. **[证毕]**
 
-##### 右导出函子
+#### 右导出函子
 
 - 对任意dg $\mathcal{A}$-$\mathcal{B}$-双模 $X$, dg函子 $\scHom_{\mathcal{B}}(X,-):\mathsf{Mod}\text{-}\mathcal{B}\to\mathsf{Mod}\text{-}\mathcal{A}$ 保持同伦和映射锥, 从而诱导了三角函子 $\scHom_{\mathcal{B}}(X,-):\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{B})\to\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$. 我们定义 **[导出张量积函子]** $\scHom_{\mathcal{B}}(X,-):\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{B})\to\mathbf{D}(\mathsf{Mod}\text{-}\mathcal{A})$ 为如下复合函子 (第二行箭头理解为 $\mapsto$):
   $$
@@ -543,14 +539,281 @@ $$
 
 - 若有dg自然变换 $\gamma:F\to G$, 则有 **[右导出自然变换]** $\mathbf{L}\gamma:\mathbf{L}F\to\mathbf{L}G$, 定义为 $\mathbf{L}\gamma=\mathrm{can}\circ\gamma\circ\mathbf{i}$, 见上一条.
 
-### 预三角dg范畴
+## dgCat中的范畴构造
 
-#### 平移对象
+- 引入记号:
+  - $\mathsf{Cat}$: 全体小范畴与函子的范畴.
+  - $\Bbbk\text{-}\mathsf{Cat}$: 全体小 $\Bbbk$-线性范畴与 $\Bbbk$-线性函子的范畴.
+  - $\mathsf{grCat}$: 全体小分次范畴与分次函子的范畴.
+  - $\mathsf{dgCat}$: 全体小dg范畴与dg函子的范畴.
 
-##### 正平移
+### 极限的刻画
+
+- 记号约定: 对于一个指标范畴 $\mathcal{I}$ 和一个函子 $F:\mathcal{I}\to\mathcal{C}$, 我们记 $F_i$ 为 $i\in\mathcal{I}$ 的像对象, 记 $F_\alpha:F_i\to F_j$ 为态射 $\alpha:i\to j$ 对应的像态射.
+- 小范畴的范畴 $\mathsf{Cat}$ 是完备的. 图表 $\mathcal{C}:\mathcal{I}\to\mathsf{Cat}$ 的极限 $\lim_\mathcal{I}\mathcal{C}$ 刻画如下:
+  - 对象: $\op{Obj}(\lim_\mathcal{I}\mathcal{C})$ $=$ $\lim_{i\in\mathcal{I}}\op{Obj}(\mathcal{C}_i)$ $=$ $\{(X_i)_{i\in\mathcal{I}}\mid X_i\in\op{Obj}(\mathcal{C}_i)$, 且对 $\mathcal{I}$ 中任意态射 $\alpha:i\to j$ 有 $\mathcal{C}_\alpha(X_i)=X_j\}$.
+  - 态射: $\Hom_{\lim_\mathcal{I}\mathcal{C}}((X_i)_{i\in\mathcal{I}},(Y_i)_{i\in\mathcal{I}})$ $=$ $\lim_\mathcal{i\in I}\mathcal{C}_i(X_i,Y_i)$ $=$ $\{(f_i)_{i\in\mathcal{I}}\mid f_i\in\mathcal{C}_i(X_i,Y_i)$, 且对 $\mathcal{I}$ 中任意态射 $\alpha:i\to j$ 有 $\mathcal{C}_\alpha(f_i)=f_j\}$. 这里态射集的极限是集合范畴 $\mathsf{Set}$ 中取的.
+  - 复合: 逐分量复合.
+- 小 $\Bbbk$-线性范畴 $\Bbbk\text{-}\mathsf{Cat}$ 是完备的. 图表 $\mathcal{C}:\mathcal{I}\to\Bbbk\text{-}\mathsf{Cat}$ 的极限 $\lim_\mathcal{I}\mathcal{C}$ 刻画同 $\mathsf{Cat}$ 的情形, 但此处态射集的极限是在 $\Bbbk$-模范畴中取的.
+- 小分次范畴的范畴 $\mathsf{grCat}$ 是完备的. 图表 $\mathcal{A}:\mathcal{I}\to\mathsf{grCat}$ 的极限 $\lim_\mathcal{I}\mathcal{A}$ 刻画同 $\mathsf{Cat}$ 的情形, 但此处态射集的极限是在分次 $\Bbbk$-模范畴 $\mathcal{G}(\Bbbk)$ 中取的.
+- 小dg范畴的范畴 $\mathsf{dgCat}$ 是完备的. 图表 $\mathcal{A}:\mathcal{I}\to\mathsf{dgCat}$ 的极限 $\lim_\mathcal{I}\mathcal{A}$ 刻画同 $\mathsf{Cat}$ 的情形, 但此处态射集的极限是在dg $\Bbbk$-模范畴 $\mathcal{C}(\Bbbk)$ 中取的. 注: 遗忘函子 $\mathsf{dgCat}\to\mathsf{grCat}$ 保持极限.
+
+### 箭图语言
+
+#### 箭图
+
+- 一个 **[箭图]** 是一个四元组 $Q=(Q_0,Q_1;s,t)$, 其中: 
+  - $Q_0,Q_1$ 是两个集合, 分别称为 $Q$ 的 **[顶点集]** 和 **[箭向集]**;
+  - $s,t:Q_1\to Q_0$ 是两个映射, 分别称为 $Q$ 的 **[起点映射]**, **[终点映射]**. 对于 $\alpha\in Q_1$, 我们将 $s(\alpha),t(\alpha)$ 分别称为 $\alpha$ 的 **[起点]**, **[终点]**.
+- 给定箭图 $Q$.
+  - $Q$ 上的一条 **[道路]**, 是一个由箭向构成的有限序列 $p=\alpha_n\cdots\alpha_1$ ($n\geq0$), 其中 $t(\alpha_i)=s(\alpha_{i+1})$ 恒成立. 此时我们定义 $p$ 的起点为 $s(p)=s(\alpha_1)$, 终点为 $t(p)=t(\alpha_n)$. 我们用 $p:i\leadsto j$ 表示 $p$ 是一条从 $i$ 到 $j$ 的道路.
+  - 在上述定义中, 当 $n=0$ 时, 我们称 $p$ 是一条 **[常值道路]**. 所有的常值道路一一对应于 $Q_0$. 顶点 $i$ 给出的常值道路记为 $e_i$, 我们规定其起点和终点 $s(e_i)=t(e_i)=i$. 注意: 常值道路虽然是一个空序列, 但仍指定了起点和终点.
+  - 两条道路 $p=\alpha_m\cdots\alpha_1:i\leadsto j$, $q=\beta_n\cdots\beta_1:j'\leadsto k$ 的 **[复合]**, 定义如下:
+    - 若 $j\ne j'$, 则 $p,q$ 不可复合;
+    - 若 $j=j'$, 则 $p,q$ 的复合定义为 $qp=\beta_n\cdots\beta_1\alpha_m\cdots\alpha_1:i\leadsto k$.
+- 我们定义 **[箭图范畴]** $\mathsf{Quiv}$:
+  - 对象: 全体箭图;
+  - 态射: 箭图态射. 一个 **[箭图态射]** $f:Q\to Q'$ 由下列数据构成:
+    - 一个映射 $f_0:Q_0\to Q'_0$;
+    - 一个映射 $f_1:Q_1\to Q'_1$, 使得对任意 $Q$ 中的箭向 $\alpha:i\to j$, 它被映为箭向 $f_1(\alpha):f_0(i)\to f_0(j)$.
+- 我们有一个伴随对 $\op{Path}\dashv\op{Forget}:\mathsf{Quiv}\to\mathsf{Cat}$, 其中:
+  - $\op{Path}:\mathsf{Quiv}\to\mathsf{Cat}$ 称为 **[路范畴函子]**, 它将一个箭图 $Q$ 对应为它的 **[路范畴]** $\op{Path}(Q)$, 其构造如下:
+    - 对象: $Q$ 的顶点;
+    - 态射: $\Hom_{\mathsf{Path}(Q)}(i,j)$ 是全体从 $i$ 到 $j$ 的道路构成的集合;
+    - 复合: 由道路的复合给出.
+  - $\op{Forget}:\mathsf{Cat}\to\mathsf{Quiv}$ 是遗忘函子, 它将一个范畴 $\mathcal{C}$ 映为它给出的箭图, 其顶点就是 $\mathcal{C}$ 的对象, 箭向就是 $\mathcal{C}$ 的态射.
+  - 这个伴随对给出了路范畴的如下泛性质: 给定箭图 $Q$ 和范畴 $\mathcal{D}$, 则对任意箭图态射 $f:Q\to\op{Forget}(\mathcal{D})$, 存在唯一的函子 $F:\op{Path}(Q)\to\mathcal{D}$, 使得 $F\circ\eta_Q=f$, 这里 $\eta:Q\to\op{Forget}(\op{Path}(Q))$ 为单位态射. 因此我们也称 $\op{Path}(Q)$ 为由 $Q$ 生成的 **[自由范畴]**.
+- 我们也有一个伴随对 $\op{\Bbbk Path}\dashv\op{Forget}:\mathsf{Quiv}\to\Bbbk\text{-}\mathsf{Cat}$, 其中:
+  - $\op{\Bbbk Path}:\mathsf{Quiv}\to\Bbbk\text{-}\mathsf{Cat}$ 称为 **[$\Bbbk$-线性路范畴函子]**, 它将一个箭图 $Q$ 对应为它的 **[$\Bbbk$-线性路范畴]** $\op{\Bbbk Path}(Q)$, 其构造与 $\mathsf{Path}(Q)$ 类似, 但态射空间 $\Hom_{\mathsf{\Bbbk Path}(Q)}(i,j)$ 是以 $\Hom_{\mathsf{Path}(Q)}(i,j)$ 为基的自由 $\Bbbk$-模. $\op{\Bbbk Path}(Q)$ 称为由 $Q$ 生成的 **[自由 $\Bbbk$-范畴]**.
+  - $\op{Forget}:\Bbbk\text{-}\mathsf{Cat}\to\mathsf{Quiv}$ 是显然的遗忘函子.
+
+#### 分次箭图
+
+- 一个 **[分次箭图]** 是一个箭图 $Q=(Q_0,Q_1;s,t)$ 连同一个 **[次数映射]** $|-|:Q_1\to\mathbb{Z}$.
+  - 此时, $Q$ 上一条道路 $p=(\alpha_n,\cdots,\alpha_1)$ 的次数定义为 $|p|=\sum_{i=1}^n|\alpha_i|$.
+  - 我们可以定义 **[分次箭图的范畴]** $\mathsf{grQuiv}$.
+- 我们有一个伴随对 $\op{grPath}\dashv\op{Forget}:\mathsf{grQuiv}\to\mathsf{grCat}$, 其中:
+  - $\op{grPath}:\mathsf{grQuiv}\to\mathsf{grCat}$ 称为 **[分次路范畴函子]**, 它将一个分次箭图 $Q$ 对应为它的 **[分次路范畴]** $\op{grPath}(Q)$, 其构造如下:
+    - 对象: $Q$ 的顶点;
+    - 态射: $\Hom_{\mathsf{Path}(Q)}(i,j)$ 是以全体从 $i$ 到 $j$ 的道路为基生成的分次自由 $\Bbbk$-模;
+    - 复合: 由道路的复合给出.
+  - $\op{Forget}:\mathsf{grCat}\to\mathsf{grQuiv}$ 是显然的遗忘函子.
+  - 这个伴随对给出了路范畴的如下泛性质: 给定分次箭图 $Q$ 和分次范畴 $\mathcal{D}$, 则对任意分次箭图态射 $f:Q\to\op{Forget}(\mathcal{D})$, 存在唯一的分次函子 $F:\op{grPath}(Q)\to\mathcal{D}$, 使得 $F\circ\eta_Q=f$, 这里 $\eta:Q\to\op{Forget}(\op{grPath}(Q))$ 为单位态射. 因此 $\op{grPath}(Q)$ 称为由 $Q$ 生成的 **[自由分次范畴]**.
+
+#### dg箭图
+
+- 一个 **[dg箭图]** 是一个分次箭图 $Q$ 连同分次路范畴 $\op{grPath}(Q)$ 的每个态射空间上的一个微分 $d$, 使得 $(\op{grPath}(Q),d)$ 成为一个dg范畴. 实际上, $d$ 完全由它在每个箭向上的取值确定, 因此我们也将 $d$ 视为一个定义在 $Q_1$ 上的映射. 我们规定由dg箭图 $(Q,d)$ 给出的dg范畴为 $\op{dgPath}(Q,d)=(\op{grPath}(Q),d)$.
+  - 例: 考虑dg箭图 $Q=\Bigg(\begin{xy}(0,0)*+{1}="1",(20,0)*+{2}="2",(40,0)*+{3}="3",\ar"1";"2"_\alpha\ar"2";"3"_\beta\ar@/^1em/"1";"3"^\gamma\end{xy}\Bigg)$, 其中 $|\alpha|=|\beta|=0$, $|\gamma|=-1$, $d(\alpha)=d(\beta)=0$, $d(\gamma)=\beta\alpha$.
+
+### 余极限的刻画
+
+- $\mathsf{Cat}$ 是余完备的. 图表 $\mathcal{C}:\mathcal{I}\to\mathsf{Cat}$ 的余极限 $\colim_{\mathcal{I}}\mathcal{C}$ 刻画如下:
+  - 对象: $\op{Obj}(\op{colim}_\mathcal{I}\mathcal{C})$ $=$ $\colim_{i\in\mathcal{I}}\op{Obj}(\mathcal{C}_i)$ $=$ $\coprod_{i\in\mathcal{I}}\op{Obj}(\mathcal{C}_i)\big/\!\sim$, 这里, $\sim$ 是由如下关系生成的等价关系: 对于 $X_i\in\mathcal{C}_i, X_j\in\mathcal{C}_j$, 我们有 $X_i\sim X_j$ 当且仅当存在态射 $\alpha:i\to j$ 使得 $\mathcal{C}_\alpha(X_i)=X_j$. 我们用 $[X_i]$ 表示对象 $X_i\in\mathcal{C}_i$ 所在的等价类.
+  - 态射: 考虑箭图 $Q=(\op{Obj}(\op{colim}_\mathcal{I}\mathcal{C}), \coprod_{i\in\mathcal{I}}\op{Mor}(\mathcal{C}_i);s,t)$, 其中 $s,t$ 分别将一个 $\mathcal{C}_i$ 中的态射 $f_i:X_i\to Y_i$ 映为 $[X_i]$ 和 $[Y_i]$. 作路范畴 $\op{Path}(Q)$ 的一个商范畴 $\op{Path}(Q)/\!\sim$, 其中 $\sim$ 是由下列关系生成的同余关系:
+    - 对于 $\mathcal{C}_i$ 中的两个可复合的态射 $f_i,g_i$, 规定 $g_i\circ f_i\sim g_if_i$ (这里 $g_i\circ f_i$ 是一个长为 $1$ 的道路, $g_if_i$ 是一个长为 $2$ 的道路, 下同);
+    - 对于任意对象 $X_i\in\mathcal{C}_i$, 规定 $\id_{X_i}\sim e_{[X_i]}$;
+    - 对任意态射 $f\in\op{Mor}(\mathcal{C}_i)$ 和任意态射 $\alpha:i\to j$, 规定 $f\sim \mathcal{C}_\alpha(f)$.
+    
+    我们定义 $\op{colim}_\mathcal{I}\mathcal{C}=\op{Path}(Q)/\!\sim$.
+  - 复合: 由路范畴的复合和商范畴的构造给出.
+- $\Bbbk\text{-}\mathsf{Cat}$ 是余完备的. 图表 $\mathcal{C}:\mathcal{I}\to\Bbbk\text{-}\mathsf{Cat}$ 的余极限 $\colim_\mathcal{I}\mathcal{C}$ 的刻画与 $\mathsf{Cat}$ 的情形类似, 但此处应改用 $\Bbbk$-线性路范畴 $\op{\Bbbk Path}(Q)$, 且其上的同余关系 $\sim$ 改为由所给关系生成的 $\Bbbk$-线性理想.
+- $\mathsf{grCat}$ 是余完备的. 图表 $\mathcal{A}:\mathcal{I}\to\mathsf{grCat}$ 的余极限 $\colim_\mathcal{I}\mathcal{A}$ 的刻画与 $\mathsf{Cat}$ 的情形类似, 但此处应改用分次路范畴 $\op{grPath}(Q)$, 且其上的同余关系 $\sim$ 改为由所给关系生成的分次 $\Bbbk$-线性理想.
+- $\mathsf{dgCat}$ 是余完备的. 图表 $\mathcal{A}:\mathcal{I}\to\mathsf{dgCat}$ 的余极限 $\colim_\mathcal{I}\mathcal{A}$ 的刻画与 $\mathsf{Cat}$ 的情形类似, 但此处应改用 $\Bbbk$-线性路范畴 $\op{\Bbbk Path}(Q)$, 且其上的理想 $\sim$ 改为由所给关系生成的dg理想. 注: 遗忘函子 $\mathsf{dgCat}\to\mathsf{grCat}$ 保持余极限.
+
+
+## Dwyer–Kan模型结构
+
+### 定理表述
+
+#### 余纤维生成类
+
+- 我们将 $\Bbbk$ 视为只有一个对象 $1$ 的dg范畴.
+- 我们将 $\Bbbk\oplus\Bbbk$ 视为只有两个对象 $1,2$ 的离散dg范畴.
+- 我们定义 $\mathcal{S}^n$ 为由dg箭图 $\begin{xy}(0,0)*+{1}="1",(20,0)*+{2}="2"\ar"1";"2"^u\end{xy}$ 给出的dg范畴, 其中 $|u|=-n$.
+- 我们定义 $\mathcal{D}^n$ 为由dg箭图 $\begin{xy}(0,0)*+{1}="1",(20,0)*+{2}="2"\ar@<2pt>"1";"2"^v\ar@<-2pt>"1";"2"_{dv}\end{xy}$ 给出的dg范畴, 其中 $|v|=-n$, $d(v)=dv$.
+- 我们定义 $\mathcal{K}$ 为由dg箭图 $\begin{xy}(0,0)*+{1}="1",(30,0)*+{2}="2",\ar@<2.5pt> "1";"2" |\alpha\ar@<2.5pt> "2";"1" ^\beta\ar@(dl,ul) "1";"1" ^{h_1}\ar@(ur,dr) "2";"2" ^{h_2}\ar@/^1.5em/"1";"2" ^\gamma\end{xy}$ 给出的dg范畴, 其中:
+  - $|\alpha|=|\beta|=0$, $|h_1|=|h_2|=-1$, $|\gamma|=-2$;
+  - $d(h_1)=\beta\circ\alpha-\id_1$, $d(h_2)=\id_2-\alpha\circ\beta$, $d(\gamma)=-h_2\circ\alpha-\alpha\circ h_1$.
+- 我们定义 $\mathcal{I}$ 是由下列dg函子构成的集合:
+  - $\varnothing\to\Bbbk$, 其中 $\varnothing$ 是空范畴;
+  - $\iota_n:\mathcal{S}^n\to\mathcal{D}^{n+1}$, 这里, $\iota_n$ 保持对象不变, 但将态射 $u$ 映为 $dv$.
+- 我们定义 $\mathcal{J}$ 是由下列dg函子构成的集合:
+  - $\rho_n:\Bbbk\oplus\Bbbk\to\mathcal{D}^n$, 它保持对象不变;
+  - $\sigma:\Bbbk\to\mathcal{K}$, 它将 $\Bbbk$ 的对象 $1$ 映为 $\mathcal{K}$ 的对象 $1$. (一道很好的习题: 直接证明 $\sigma$ 是拟等价.)
+
+#### Dwyer–Kan模型结构定理
+
+**[定理 ([Gonçalo Tabuada, 2005](https://www.sciencedirect.com/science/article/pii/S1631073X04005333))]** 在小dg范畴的范畴 $\mathsf{dgCat}$ 上, 存在一个Quillen模型结构 $(\mathsf{Cof},\mathsf{Weq},\mathsf{Fib})$, 其中:
+
+- $\mathsf{Weq}$ 是全体拟等价;
+- $\mathsf{Fib}$ 的成员刻画如下: 一个dg函子 $F:\mathcal{A\to B}$ 是纤维化, 当且仅当
+  - $F$ 是全函子;
+  - $\mathrm{H}^0F:\mathrm{H}^0\mathcal{A}\to \mathrm{H}^0\mathcal{B}$ 是[同纤维化 (isofibration)](https://ncatlab.org/nlab/show/isofibration), 即: 对 $\mathcal{B}$ 中任意同伦等价 $f':FX\to Y'$ ($X\in\mathcal{A}$), 存在 $\mathcal{A}$ 中同伦等价 $f:X\to Y$ 使得 $F(f)=f'$.
+- $\mathsf{Cof}={}^\perp(\mathsf{Fib}\cap\mathsf{Weq})$.
+
+并且这个Quillen模型结构是由 $\mathcal{I},\mathcal{J}$ 余纤维生成的.
+
+**[证明策略]** 我们将运用Mark Hovey《Model Categories》定理2.1.19. 具体地, 我们将证明:
+
+- $\mathsf{Weq}$ 具有二推三性质, 且关于收缩封闭.
+  - 其实这是显然的, 请读者自行证明.
+- $\mathcal{I},\mathcal{J}$ 的定义域都是 $\mathsf{dgCat}$ 中的小对象.
+  - 这也很简单, 因为这些定义域都是对象个数有限, 且态射空间维数也有限的dg范畴.
+- $\mathcal{I}\text{-}\mathrm{inj}=\mathcal{J}\text{-}\mathrm{inj}\cap\mathsf{Weq}$.
+- $\mathcal{J}\text{-}\mathrm{cell}\subseteq\mathcal{I}\text{-}\mathrm{cof}\cap\mathsf{Weq}$.
+
+### Kontsevich的dg范畴 $\mathcal{K}$
+
+#### 同伦等价的刻画
+
+- 为了说明dg范畴 $\mathcal{K}$ 是一个很自然的对象, 我们给出如下
+
+**[引理]** 在dg范畴 $\mathcal{A}$ 中, 设 $f:X\to Y$ 是同伦等价, $g:Y\to X$ 是其同伦逆. 则存在 $h_X\in\mathcal{A}(X,X)^{-1}$, $h_Y\in\mathcal{A}(Y,Y)^{-1}$ 和 $\gamma\in\mathcal{A}(X,Y)^{-2}$ 使得 $d(h_X)=g\circ f-\id_X$, $d(h_Y)=f\circ g-\id_Y$, $d(\gamma)=h_Y\circ f-f\circ h_X$. 从而存在函子 $H:\mathcal{K}\to\mathcal{A}$ 使得 $H\alpha=f$, $H\beta=g$.
+
+**[证明]** 根据同伦等价的定义, 显然存在 $h'_X\in\mathcal{A}(X,X)^{-1}$ 和 $h_Y\in\mathcal{A}(Y,Y)^{-1}$ 使得 $d(h'_X)=g\circ f-\id_X$, $d(h_Y)=f\circ g-\id_Y$. 因为 $f$ 是同伦等价, 所以 $f\circ-:\mathcal{A}(X,X)\to\mathcal{A}(X,Y)$ 是一个链同伦等价, 从而是拟同构. 直接计算可验证 $h_Y\circ f-f\circ h_X\in \mathrm{Z}^{-1}\mathcal{A}(X,Y)$, 所以存在 $h''\in\mathcal{A}(X,X)^{-1}$ 和 $\gamma\in\mathcal{A}(X,Y)^{-2}$ 使得 $h_Y\circ f-f\circ h_X=f\circ h''+d(\gamma)$. 令 $h_X=h'_X+h''$ 则符合题意. **[证毕]**
+
+#### 万有同伦等价
+
+- 下面这个引理给出了 $\mathcal{K}$ 的一个刻画. 我们说 $\mathcal{K}$ 是一个万有同伦等价.
+
+**[Kontsevich引理]** 对任意小dg范畴 $\mathcal{C}$, 我们有双射 $\mathsf{dgCat}(\mathcal{K},\mathcal{C})\xrightarrow{\sim}\left\{(f,c)\,\bigg|\,\begin{aligned}&f\text{ 是 $\mathcal{C}$ 中的一个 $0$-次闭态射},\\&c\text{ 是 $\Cone(\widehat{f})$ 的一个收缩同伦}\end{aligned}\right\}$ (这里的 $f$ 必是同伦等价).
+
+**[证明]** 设 $F:\mathcal{K}\to\mathcal{C}$ 为一个dg函子, 记 $F(1)=x,F(2)=y$. 因为 $\alpha:1\to2$  是闭态射, 所以 $f=F\alpha:x\to y$ 也是 $0$-次闭态射, 从而 $\widehat f:\widehat x\to\widehat y$ 也是 $0$-次闭态射. 映射锥 $\Cone(\widehat f)=\left(\widehat{x}[1]\oplus\widehat{y},\begin{pmatrix}-d_{\widehat{x}}&0\\\widehat{f}&d_{\widehat{y}}\end{pmatrix}\right)$ 的收缩同伦, 可以写成一个矩阵 $c=\begin{pmatrix}\widehat{s_{11}}&\widehat{s_{12}}\\\widehat{s_{21}}&\widehat{s_{22}}\end{pmatrix}$, 其中 $s_{11}\in\mathcal{A}(x,x)^{-1}$, $s_{12}\in\mathcal{A}(y,x)^0$, $s_{21}\in\mathcal{A}(x,y)^{-2}$, $s_{22}\in\mathcal{A}(y,y)^{-1}$, 使得 
+$$
+\begin{pmatrix}-d_{x}&0\\f&d_{y}\end{pmatrix}\begin{pmatrix}{s_{11}}&{s_{12}}\\{s_{21}}&{s_{22}}\end{pmatrix}-(-1)^{-1}\begin{pmatrix}{s_{11}}&{s_{12}}\\{s_{21}}&{s_{22}}\end{pmatrix}\begin{pmatrix}-d_{x}&0\\f&d_{y}\end{pmatrix}=\begin{pmatrix}\id_{x}&0\\0&\id_{ y}\end{pmatrix}.
+$$
+稍作计算, 可得上式等价于 $d(s_{12})=0$, $d(s_{11})=s_{12}\circ f-\id_x$, $d(s_{22})=\id_y-f\circ s_{12}$, $d(s_{21})=-s_{22}\circ f-f\circ s_{11}$. 于是映射 $F\mapsto\left(F\alpha,\begin{pmatrix}Fh_1&F\beta\\F\gamma&Fh_2\end{pmatrix}^{\wedge}\right)$ 就是所求的双射. **[证毕]**
+
+#### 消灭映射锥
+
+- 从一个dg范畴 $\mathcal{A}$ 和其中一个对象 $x\in\mathcal{A}$ 出发, 我们给出如下这个重要构造. 此构造是受到上述引理启发的, 它与 $\sigma:\Bbbk\to\mathcal{K}$ 的推出密切相关, 后续证明中将要用到.
+
+  - 向 $\mathcal{A}$ 添加一个新的对象 $y$ 和一个态射 $f:x\to y$, 使得 $|f|=0$, $d(f)=0$. 所得的dg范畴记为 $\mathcal{A}_1$.
+  - 在 $\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{A}_1$ 中, 考虑全体可表模 $\widehat{x'}$ ($x'\in\mathcal{A}_1$) 连同映射锥 $\Cone(\widehat f)$ 构成的dg全子范畴 $\mathcal{A}_2$.
+  - 向 $\mathcal{A}_2$ 自由地添加 $\Cone(\widehat f)$ 的一个收缩同伦 $c$ (即 $|c|=-1$, $d(c)=\id_{\Cone(\widehat f)}$), 得到dg范畴 $\mathcal{A}_3$.
+  - 我们有典范的dg函子 $\mathcal{A}_1\xrightarrow{\Upsilon}\mathcal{A}_2\to\mathcal{A}_3$. 将这个复合函子的像对象构成的dg全子范畴记为 $\mathcal{A}_4$.
+
+  总体来说, 就是新建一个映射锥并杀掉它.
+
+**[引理]** 考虑推出图 $\left(\;\;\begin{CD}\Bbbk @>{1\mapsto x}>> \mathcal{A}\\@V{\sigma}VV @VV{F}V\\\mathcal{K} @>G'>> \mathcal{B}.\end{CD}\right)$. 则 $\mathcal{A}_4$ 与 $\mathcal{B}$ 是dg同构的.
+
+**[证明]** 参见Gonçalo Tabuada《Noncommutative Motives》Proposition 1.21的证明. 下面给出一个比较通俗但不失严谨性的解释.
+
+根据dg范畴余极限的刻画, $\mathcal{B}$ 是按如下方式得到的:
+- 先向 $\mathcal{A}$ 添加一个新对象 $y$;
+- 再自由添加5个新态射 $f\in\mathrm{Z}^0\mathcal{A}_1(x,y)$, $g\in\mathrm{Z}^0\mathcal{A}_1(y,x)$, $h_x\in\mathcal{A}_1(x,x)^{-1}$, $h_y\in\mathcal{A}_1(y,y)^{-1}$, $r\in\mathcal{A}_1(x,y)^{-2}$;
+- 最后规定微分 $d(h_x)=g\circ f-\id_x$, $d(h_y)=\id_y-f\circ g$, $d(r)=-h_y\circ f-f\circ h_x$.
+
+另一方面, 我们来刻画 $\mathcal{A}_4$. 将 $\Cone(\widehat{f})=(\widehat{x}[1]\oplus\widehat{y},d_{\Cone(\widehat{f})})$ 的收缩同伦写成矩阵 $c=\begin{pmatrix}h_x&g\\r&h_y\end{pmatrix}^\wedge$, 其中 $g\in\mathcal{A}_1(y,x)^{0}$, $h_x\in\mathcal{A}_1(x,x)^{-1}$, $h_y\in\mathcal{A}_1(y,y)^{-1}$, $r\in\mathcal{A}_1(x,y)^{-2}$ (参见[Kontsevich引理](#万有同伦等价)的证明). 作为分次范畴, $\mathcal{A}_3$ 是向 $\mathcal{A}_2$ 自由添加态射 $c$ 得到的, 所以作为分次范畴, $\mathcal{A}_4$ 是向 $\mathcal{A}_1$ 自由添加态射 $g,h_x,h_y,r$ 得到的. 因此由分次范畴余极限的刻画, $\mathcal{A}_4$ 与 $\mathcal{B}$ 是分次同构的. 而直接计算表明, $d(c)=\id_{\Cone(\widehat{f})}$ 等价于 $d(g)=0$, $d(h_x)=g\circ f-\id_x$, $d(h_y)=\id_y-f\circ g$, $d(r)=-h_y\circ f-f\circ h_x$, 所以 $\mathcal{A}_4$ 与 $\mathcal{B}$ 具有相同的刻画, 从而二者是dg等价的.
+
+### 证明
+
+#### $\mathcal{J}\text{-}\mathrm{inj}$ 的刻画
+
+**[引理]** $\mathsf{Fib}=\mathcal{J}\text{-}\mathrm{inj}$.
+
+**[证明]** 回顾, $F\in\mathsf{Fib}$ 当且仅当 $F$ 是全函子, 且 $\mathrm{H}^0F$ 是同纤维化. 证明分三步.
+
+<u>**第一步:**</u> $F$ 是全函子, 当且仅当 $F$ 关于全体 $\rho_n:\Bbbk\oplus\Bbbk\to\mathcal{D}^n$ 具有右提升性质. 确实, 在dg函子的交换图表
+$$
+\begin{CD}
+	\Bbbk\oplus\Bbbk @>>> \mathcal{A}\\
+	@V{\rho_n}VV @VV{F}V\\
+	\mathcal{D}^{n} @>>> \mathcal{B}
+\end{CD}
+$$
+中, 上面的水平箭头确定了两个对象 $x,y\in\mathcal{A}$, 下面的箭头确定了 $\mathcal{B}$ 中的一个 $(-n)$-次态射 $g:Fx\to Fy$. 则存在一个提升 $\mathcal{D}^n\to\mathcal{A}$, 当且仅当存在一个 $(-n)$-次态射 $f:x\to y$ 使得 $Ff=g$.
+
+<u>**第二步:**</u> 若 $F$ 关于 $\sigma:\Bbbk\to\mathcal{K}$ 具有右提升性质, 则 $\mathrm{H}^0F$ 是同纤维化. 给定 $\mathcal{B}$ 中的一个同伦等价 $f':FX\to Y'$ ($X\in\mathcal{A}$), 根据[同伦等价的刻画](#同伦等价的刻画), 存在一个函子 $H':\mathcal{K}\to\mathcal{B}$ 使得 $H'\alpha=f'$. 定义函子 $\Bbbk\to\mathcal{A}$, 将对象 $1$ 映为 $X$. 则我们得到dg函子的交换图表
+$$
+\begin{CD}
+	\Bbbk @>>> \mathcal{A}\\
+	@V{\sigma}VV @VV{F}V\\
+	\mathcal{K} @>>{H'}> \mathcal{B}
+\end{CD}
+$$
+由假定, 存在一个提升 $H:\mathcal{K}\to\mathcal{A}$. 则 $f=H\alpha:X\to Y$ 是一个同伦等价, 且 $Ff=f'$ 符合题意.
+
+<u>**第三步:**</u> 若 $F$ 是纤维化, 则 $F$ 关于 $\sigma$ 具有右提升性质. Kontsevich引理表明, 给定上面那个交换图表, 等价于给定一个对象 $x\in\mathcal{A}$, 一个 $0$-次闭态射 $f':Fx\to Y'$ 和 $\Cone(\widehat{f'})$ 的一个收缩 $c'$. 由于 $\mathrm{H}^0F$ 是同纤维化, 所以存在 $0$-次闭态射 $f:x\to y$ 使得 $Ff=f'$. 因为 $f$ 是同伦等价, 所以 $\Cone(\widehat f)$ 是可缩对象.
+
+$F:\mathcal{A\to B}$ 诱导了dg函子 $F_!:\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{A}\to\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{B}$, 从而 $F_!:\Cone(\widehat f)\mapsto\Cone(\widehat{f'})$. 实际上 $F_!$ 诱导的dg代数同态 $\op{End}_{\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{A}}(\Cone(\widehat f))\to\op{End}_{\mathsf{Mod}_{\mathrm{dg}}\text{-}\mathcal{B}}(\Cone(\widehat{f'}))$ 是满的拟同构, 因为
+- $F$ 是全函子, 而 $\Cone(\widehat f),\Cone(\widehat{f'})$ 的自同态可写成矩阵的形式 (见Kontsevich引理的证明), 这证明了上述同态是满的;
+- $\Cone(\widehat f),\Cone(\widehat{f'})$ 都是可缩的, 因此自同态dg代数是零调的, 这证明了上述同态是拟同构.
+
+因此, 我们可以将 $c'$ 提升为 $\Cone(\widehat f)$ 的一个收缩 $c$. 于是 $(f,c)$ 给出了一个dg-函子 $H:\mathcal{K\to A}$, 它就是我们所求的一个提升. **[证毕]**
+
+#### 证明 $\mathcal{I}\text{-}\mathrm{inj}=\mathcal{J}\text{-}\mathrm{inj}\cap\mathsf{Weq}$
+
+- 设 $\mathsf{Surj}$ 为如下dg函子 $F:\mathcal{A\to B}$ 构成的类:
+  - 在对象上, $F:\op{Obj}(\mathcal{A})\to\op{Obj}(\mathcal{B})$ 是满射;
+  - 在态射上, $\mathcal{A}(x,y)\to\mathcal{B}(Fx,Fy)$ 是满的拟同构, $\forall x,y\in\mathcal{A}$.
+
+**[引理]** $\mathcal{I}\text{-}\mathrm{inj}=\mathsf{Surj}=\mathcal{J}\text{-}\mathrm{inj}\cap\mathsf{Weq}$.
+
+**[证明]** 分为两步.
+
+<u>**第一步:**</u> $\mathcal{I}\text{-}\mathrm{inj}=\mathsf{Surj}$. 实际上, $F$ 在对象上是满的, 等价于 $F$ 关于 $\varnothing\to\Bbbk$ 具有右提升性质. 而根据基本的同调代数, $F$ 在态射上是满的拟同构, 等价于 $F$ 关于全体 $\iota_n:\mathcal{S}^{n-1}\to\mathcal{D}^n$ 均具有右提升性质.
+
+<u>**第二步:**</u> $\mathcal{J}\text{-}\mathrm{inj}\cap\mathsf{Weq}=\mathsf{Surj}$. 一方面, 若 $F\in\mathsf{Surj}$, 则显然 $F$ 是拟等价, 且 $\mathrm{H}^0F$ 是同纤维化. 另一方面, 若 $F\in\mathcal{J}\text{-}\mathrm{inj}\cap\mathsf{Weq}$, 则在态射上, 由 $\mathcal{J}\text{-}\mathrm{inj}=\mathsf{Fib}$ 的刻画可知 $F$ 总是全的, 再由 $\mathsf{Weq}$ 的定义可知 $F$ 在态射上是满的拟同构. 而在对象上, 我们知道同纤维化都诱导对象类的满射, 所以 $F$ 诱导对象类的满射. **[证毕]**
+
+#### 证明 $\mathcal{J}\text{-}\mathrm{cell}\subseteq\mathcal{I}\text{-}\mathrm{cof}\cap\mathsf{Weq}$
+
+**[引理]** $\mathcal{J}\text{-}\mathrm{cell}\subseteq\mathcal{I}\text{-}\mathrm{cof}$.
+
+**[证明]** 因为 $\mathcal{I}\text{-}\mathrm{cof}$ 关于推出和超限复合封闭, 所以只需证明 $\mathcal{J}\subseteq\mathcal{I}\text{-}\mathrm{cof}$, 为此只需证明 $\mathcal{J}$ 关于 $\mathcal{I}\text{-}\mathrm{inj}=\mathsf{Surj}$ 具有左提升性质. 但我们已经证明了 $\mathcal{J}\text{-}\mathrm{inj}\cap\mathsf{Weq}=\mathsf{Surj}$. **[证毕]**
+
+**[引理]** $\mathcal{J}\text{-}\mathrm{cell}\subseteq\mathsf{Weq}$.
+
+**[证明]** 首先注意到 $\mathsf{Weq}$ 关于超限复合封闭, 这是因为 $\mathrm{H}^\bullet:\mathsf{dgCat}\to\mathsf{grCat}$ 与超限复合可交换. 所以我们只需证明 $\mathcal{J}$ 中函子的推出仍是拟等价. 于是我们分别讨论下面两个推出图:
+$$
+\begin{CD}
+	\Bbbk\oplus\Bbbk @>G>> \mathcal{A}	@.@.@.	\Bbbk @>G>> \mathcal{A}	\\
+	@V{\rho_n}VV @VV{F}V				@.@.	@V{\sigma}VV @VV{F}V\\
+	\mathcal{D}^{n} @>{G'}>> \mathcal{B}@.@.@.	\mathcal{K} @>{G'}>> \mathcal{B}
+\end{CD}
+$$
+
+对于左图, 函子 $G$ 给出了两个对象 $x,y\in\mathcal{A}$. 根据 $\mathsf{dgCat}$ 中余极限的刻画, $\mathcal{B}$ 是对 $\mathcal{A}$ 自由添加两个态射 $f:x\to y,df:x\to y$ 得到的, 其中 $|f|=-n$, $d(f)=df$. 从而 $\mathcal{B}$ 的对象不变, 而态射有如下的描述. 记 $D^n=\mathcal{D}^n(1,2)$, 则对任意 $x',y'\in\mathcal{B}$, 我们有 $\mathcal{B}(x',y')=\displaystyle\bigoplus_{m\geq0}\mathcal{A}^{(m)}(x',y')$, 其中 $\mathcal{B}^{(0)}(x',y')=\mathcal{A}(x',y')$, 而当 $m\geq1$ 时
+$$
+\mathcal{B}^{(m)}(x',y')=\underbrace{\mathcal{A}(y,y')\otimes D^n\otimes\mathcal{A}(y,x)\otimes D^n\otimes\cdots\otimes D^n\otimes\mathcal{A}(y,x)\otimes D^n\otimes\mathcal{A}(x',x)}_{\text{$m$ 份 $D^n$}}.
+$$
+注意每个 $\mathcal{B}^{(m)}(x',y')$ 都是dg $\Bbbk$-模. 因为 $D^n$ 是可缩的, 所以 $m\geq1$ 对应的直和项都是可缩的, 因此 $\mathcal{A}(x',y')\to\mathcal{B}(x',y')$ 是拟同构. 从而 $F$ 是拟等价.
+
+对于右图, 我们利用[之前的构造](#消灭映射锥)得到 $\mathcal{B}\cong\mathcal{A}_4$. 容易看出 $\mathcal{A}_4$ 中新增的对象 $y$ 与 $x=G(1)$ 是同伦等价的, 因此 $\mathrm{H}^0F$ 是本质满的. 要证明 $F$ 是拟全忠实的, 我们任取 $x',y'\in\mathcal{A}$, 得到 $\mathcal{B}(Fx',Fy')\cong\mathcal{A}_3(\widehat{x'},\widehat{y'})$. 因为 $\mathcal{A}_3$ 是对 $\mathcal{A}_2$ 自由添加收缩同伦 $c$ 得到的, 因此 $\mathcal{A}_3$ 的态射集有如下描述: $\displaystyle\mathcal{A}_3(\widehat{x'},\widehat{y'})=\bigoplus_{m\geq0}\mathcal{A}_3^{(m)}(\widehat{x'},\widehat{y'})$, 其中 $\mathcal{A}_3^{(0)}(\widehat{x'},\widehat{y'})=\mathcal{A}_2(\widehat{x'},\widehat{y'})$, 而当 $m\geq1$ 时
+$$
+\mathcal{A}_3^{(m)}(\widehat{x'},\widehat{y'})=
+\underbrace{\mathcal{A}_2(\Cone(\widehat f),\widehat{y'})\otimes\Bbbk c\otimes\mathcal{A}_2(\Cone(\widehat f),\Cone(\widehat f))\otimes\Bbbk c\otimes\cdots\otimes\Bbbk c\otimes\mathcal{A}_2(\Cone(\widehat f),\Cone(\widehat f))\otimes\Bbbk c\otimes\mathcal{A}_2(\widehat{x'},\Cone(\widehat f)}_{\text{$m$ 份 $\Bbbk c$}}.
+$$
+此处 $\mathcal{A}_3^{(m)}(\widehat{x'},\widehat{y'})$ 并非dg $\Bbbk$-模, 因为 $d(c)=\id_{\Cone(\widehat f)}$ 而非 $=0$. 但不难验证 $\{\bigoplus_{l\geq0}^m\mathcal{A}_3^{(l)}(\widehat{x'},\widehat{y'})\}_{m\geq0}$ 形成了 $\displaystyle\mathcal{A}_3(\widehat{x'},\widehat{y'})$ 作为dg $\Bbbk$-模的过滤, 而且若记 $S^1=\mathcal{S}^1(1,2)$, 则该过滤的第 $m$ ($m\geq1$) 次子商为
+$$
+\underbrace{\mathcal{A}_2(\Cone(\widehat f),\widehat{y'})\otimes S^1\otimes\mathcal{A}_2(\Cone(\widehat f),\Cone(\widehat f))\otimes S^1\otimes\cdots\otimes S^1\otimes\mathcal{A}_2(\Cone(\widehat f),\Cone(\widehat f))\otimes S^1\otimes\mathcal{A}_2(\widehat{x'},\Cone(\widehat f)}_{\text{$m$ 份 $S^1$}}.
+$$
+注意到最右边的张量分量 $\mathcal{A}_2(\widehat{x'},\Cone(\widehat f))$ 同构于 $\Cone(\mathcal{A}_2(\widehat{x'},\widehat f))$, 而由 $f:x\to y$ 是同伦等价可知 $\mathcal{A}_2(\widehat{x'},\widehat f):\mathcal{A}_2(\widehat{x'},\widehat x)\to\mathcal{A}_2(\widehat{x'},\widehat y)$ 是拟同构, 因此 $\mathcal{A}_2(\widehat{x'},\Cone(\widehat f))$ 是零调的, 从而上述第 $m$ ($m\geq1$) 次子商是零调的. 因此有拟同构 $\mathcal{A}(x',y')\cong\mathcal{A}_1(\widehat{x'},\widehat{y'})\cong\mathcal{A}_2(\widehat{x'},\widehat{y'})\to\mathcal{A}_3(\widehat{x'},\widehat{y'})\cong\mathcal{B}(Fx',Fy')$. **[证毕]**
+
+至此, [Dwyer–Kan模型结构定理](#Dwyer–Kan模型结构定理)证毕.
+
+### 同伦范畴 $\mathsf{Hqe}$
+
+- 我们记 $\mathsf{Hqe}=\op{Ho}\mathsf{dgCat}=\mathsf{dgCat}[\text{q.e.}^{-1}]$ 为 $\mathsf{dgCat}$ 关于Dwyer–Kan模型结构的同伦范畴, 其中 $\text{q.e.}$ 是全体拟等价dg函子构成的态射类.
+  - 任何对象
+- $\op{Ho}\mathsf{dgCat}$ 中态射的描述. 对任意dg范畴 $\mathcal{A},\mathcal{B}$:
+  - 根据一般的Gabriel–Zisman局部化理论, $(\op{Ho}\mathsf{dgCat})(\mathcal{A},\mathcal{B})$ 中态射具有一个“之字形”代表元 $\mathcal{A}\leftarrow\bullet\rightarrow\bullet\leftarrow\bullet\rightarrow\cdots\leftarrow\bullet\rightarrow\mathcal{B}$, 其中所有的 $\leftarrow$ 都是拟等价.
+  - 因为 $\mathsf{dgCat}$ 中任何对象都是纤维对象, 所以 $(\op{Ho}\mathsf{dgCat})(\mathcal{A},\mathcal{B})$ 中的态射具有一个“右屋顶”代表元 $\mathcal{A}\leftarrow\bullet\rightarrow\mathcal{B}$, 其中的 $\leftarrow$ 是拟等价 (但注意, $\text{q.e.}$ 并不容许左/右分式演算). 而且这里的 $\mathcal{A}\leftarrow\bullet$ 可以取成 $\mathcal{A}$ 的余纤维替换.
+
+#### 余纤维替换
+
+- 一个dg范畴 $\mathcal{A}$ 称为 **[半自由dg范畴]**, 如果:
+  - 存在一个dg箭图 $(Q,d)$ 使得有dg等价 $\mathcal{A}\cong\op{dgPath}(Q,d)$.
+  - 存在箭向集 $Q_1$ 的一个穷竭过滤 $0=Q_1^{(0)}\subseteq Q_1^{(1)}\subseteq Q_1^{(2)}\subseteq\cdots$, 使得 $d(Q_1^{(n)})\subseteq Q_1^{(n-1)}$ 恒成立.
+
+## 预三角dg范畴
+
+### 平移对象
+
+#### 正平移
 
 - dg范畴 $\mathcal{A}$ 中对象 $A$ 的 **[正平移]**, 是指一个对象 $A'$, 使得下列等价条件之一成立:
-  - $A'$ 是函子 $\scHom_\mathcal{A}(-,A)[1]:\mathcal{A}^{op}\to\mathcal{C}_{\mathrm{dg}}(\Bbbk)$ 的一个代表对象.
+  - $A'$ 是函子 $\scHom_\mathcal{A}(-,A)[1]:\mathcal{A}^{\mathrm{op}}\to\mathcal{C}_{\mathrm{dg}}(\Bbbk)$ 的一个代表对象.
   - 有右dg $\mathcal{A}$-模同构 $\widehat{A'}\cong\widehat{A}[1]$.
   - 存在一个 $(-1)$-次闭同构 $A\to A'$.
 - 若dg范畴 $\mathcal{A}$ 中任何对象 $A$ 都有正平移, 则称 $\mathcal{A}$ **[有正平移]**. 此时, 我们将构造一个 **[正平移函子]** $[1]:\mathcal{A}\to\mathcal{A}$:
@@ -563,10 +826,10 @@ $$
   - 若 $\mathcal{A}$ 有正平移函子, 且 $F$ 是dg本质满的, 则 $\mathcal{B}$ 也有正平移函子.
   - 若 $\mathcal{A,B}$ 都有正平移函子, 则有dg自然变换 $\Phi:F\circ[1]\to[1]\circ F$, 其中 $\Phi_A=s_{FA}\circ(Fs_A)^{-1}:F(A[1])\to(FA)[1]$.
 
-##### 负平移
+#### 负平移
 
 - dg范畴 $\mathcal{A}$ 中对象 $A$ 的 **[负平移]**, 是指一个对象 $A'$, 使得下列等价条件之一成立:
-  - $A'$ 是函子 $\scHom_\mathcal{A}(-,A)[-1]:\mathcal{A}^{op}\to\mathcal{C}_{\mathrm{dg}}(\Bbbk)$ 的一个代表对象.
+  - $A'$ 是函子 $\scHom_\mathcal{A}(-,A)[-1]:\mathcal{A}^{\mathrm{op}}\to\mathcal{C}_{\mathrm{dg}}(\Bbbk)$ 的一个代表对象.
   - 有右dg $\mathcal{A}$-模同构 $\widehat{A'}\cong\widehat{A}[-1]$.
   - 存在一个 $1$-次闭同构 $A\to A'$.
 - 若dg范畴 $\mathcal{A}$ 中任何对象 $A$ 都有负平移, 则称 $\mathcal{A}$ **[有负平移]**. 此时, 我们将构造一个 **[负平移函子]** $[-1]:\mathcal{A}\to\mathcal{A}$:
@@ -579,7 +842,7 @@ $$
   - 若 $\mathcal{A}$ 有负平移函子, 且 $F$ 是dg本质满的, 则 $\mathcal{B}$ 也有负平移函子.
   - 若 $\mathcal{A,B}$ 都有负平移函子, 则有dg自然变换 $\Psi:F\circ[-1]\to[-1]\circ F$, 其中 $\Psi_A=t_{FA}\circ(Ft_A)^{-1}:F(A[-1])\to(FA)[-1]$.
 
-##### 正平移与负平移相容性
+#### 正平移与负平移相容性
 
 - 若 $A$ 有正平移 $s_A:A\to A[1]$, 则 $A[1]$ 有负平移 $s_A^{-1}:A[1]\to A$, 从而 $(A[1])[-1]\cong A$.
 - 若 $A$ 有负平移 $t_A:A\to A[-1]$, 则 $A[-1]$ 有正平移 $t_A^{-1}:A[-1]\to A$, 从而 $(A[-1])[1]\cong A$.
@@ -588,80 +851,71 @@ $$
   - $\mathcal{A}$ 有正平移, 且正平移函子 $[1]$ 是dg本质满的; 此时 $[1]$ 的一个dg拟逆是负平移函子;
   - $\mathcal{A}$ 有负平移, 且负平移函子 $[-1]$ 是dg本质满的; 此时 $[-1]$ 的一个dg拟逆是正平移函子.
 
-#### 映射锥对象
+### 映射锥对象
 
-##### dg态射范畴
+#### dg态射范畴
 
 - 对于dg范畴 $\mathcal{A}$, 定义 **[dg态射范畴]** $\op{Mor}_{\mathrm{dg}}(\mathcal{A})$:
   - 对象: 全体三元组 $(A,B,f)$, 其中 $A,B\in\mathcal{A}$ 是两个对象, $f:A\to B$ 是一个 $0$-次闭态射.
-  - 态射: $\Hom_{\op{Mor}_{\mathrm{dg}}(\mathcal{A})}((A,B,f),(A',B',f'))^p$ $=$ $\left\{\begin{pmatrix}\alpha&0\\h&\beta\end{pmatrix}\mid\alpha\in\mathcal{A}(A,A')^p,\beta\in\mathcal{A}(B,B')^p, h\in\mathcal{A}(A,B')^{p-1}\right\}$.
+  - 态射: $\Hom_{\op{Mor}_{\mathrm{dg}}(\mathcal{A})}((A,B,f),(A',B',f'))^p$ $=$ $\left\{\begin{pmatrix}\alpha&0\\h&\beta\end{pmatrix}\mid\alpha\in\mathcal{A}(A,A')^p, \beta\in\mathcal{A}(B,B')^p, h\in\mathcal{A}(A,B')^{p-1}\right\}$.
   - 微分: $d\begin{pmatrix}\alpha&0\\h&\beta\end{pmatrix}=\begin{pmatrix}-d(\alpha)&0\\d(h)+f'\circ\alpha-(-1)^p\beta\circ f&d(\beta)\end{pmatrix}$, 其中 $p$ 是次数.
   - 复合: 由矩阵乘法给出.
 
-##### 映射锥
+#### 映射锥
 
 - dg范畴 $\mathcal{A}$ 中 $0$-次闭态射 $f:A\to B$ 的 **[映射锥]**, 是指一个对象 $C_f$, 使得下列等价条件之一成立:
-  - $C_f$ 是函子 $\Cone(\Hom_\mathcal{A}(-,f)):\mathcal{A}^{op}\to\mathcal{C}_{\mathrm{dg}}(\Bbbk)$ 的一个代表对象.
+  - $C_f$ 是函子 $\Cone(\Hom_\mathcal{A}(-,f)):\mathcal{A}^{\mathrm{op}}\to\mathcal{C}_{\mathrm{dg}}(\Bbbk)$ 的一个代表对象.
   - 有右dg $\mathcal{A}$-模同构 $\widehat{C_f}\cong\Cone(\widehat f:\widehat A\to\widehat B)$.
-  - 存在一个图表 $\begin{xymatrix}(0,0)*+{B}="1",(25,0)*+{C_f}="2",(52,0)*+{A[1]}="3",\ar^{i_2} "1";"2"\ar@{..>}@/^/^{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xymatrix}$, 其中:
+  - 存在一个图表 $\begin{xy}(0,0)*+{B}="1",(25,0)*+{C_f}="2",(52,0)*+{A[1]}="3",\ar^{i_2} "1";"2"\ar@{..>}@/^/^{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xy}$, 其中:
     - $i_1,i_2,p_1,p_2$ 是 $0$-次态射;
     - $p_2\circ i_2=\mathbf{1}_B$, $p_1\circ i_1=\mathbf{1}_{A[1]}$, $i_1\circ p_1+i_2\circ p_2=\mathbf{1}_{C_f}$ (即: 若将 $\mathcal{A}$ 视为分次范畴, 则有同构 $C_f\cong A[1]\oplus B$).
     - $d(i_2)=0$, $d(p_1)=0$;
     - $d(i_1)=i_2\circ f\circ s_X^{-1}$, $d(p_2)=-d\circ s_X^{-1}\circ p_1$.
 - 若dg范畴 $\mathcal{A}$ 中任何 $0$-次闭态射都有映射锥, 则称 $\mathcal{A}$ **[有映射锥]**. 此时, 我们将构造一个 **[映射锥函子]** $\Cone:\op{Mor}_{\mathrm{dg}}(\mathcal{A})\to\mathcal{A}$:
-  - 在对象上: 对任意 $0$-次闭态射 $f:A\to B$ 选定一个映射锥 $\Cone(f)$ 连同一个图表 $\begin{xymatrix}(0,0)*+{B}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{A[1]}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xymatrix}$. 函子 $\Cone$ 将 $(A,B,f)$ 映为 $\Cone(f)$.
+  - 在对象上: 对任意 $0$-次闭态射 $f:A\to B$ 选定一个映射锥 $\Cone(f)$ 连同一个图表 $\begin{xy}(0,0)*+{B}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{A[1]}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xy}$. 函子 $\Cone$ 将 $(A,B,f)$ 映为 $\Cone(f)$.
   - 在态射上: 将 $\begin{pmatrix}\alpha&0\\h&\beta\end{pmatrix}:(A,B,f)\to(A',B',f')$ 映为态射 $\begin{pmatrix}(-1)^{|\alpha|}\alpha[1]&0\\h\circ s_A^{-1}&\beta\end{pmatrix}:\Cone(f)\to\Cone(f')$.
   - 不难验证 $\Cone:\op{Mor}_{\mathrm{dg}}(\mathcal{A})\to\mathcal{A}$ 是一个dg函子.
 - 映射锥与平移的关系: 给定 $f:A\to B$, 则 $\Cone(f[1])\cong\Cone(f)[1]$.
 - 映射锥与dg函子与的相容性: 给定dg函子 $F:\mathcal{A\to B}$.
-  - 若 $0$-次闭态射 $f:A\to B$ 有**映射锥** $\Cone(f)$ , 则将 $F$ 作用于图表 $\begin{xymatrix}(0,0)*+{B}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{A[1]}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xymatrix}$ 可知 $Ff$ 有映射锥 $F\Cone(f)$. 此外, 对于 $Ff$ 的任一映射锥 $\Cone(Ff)$ 连连同图表 $\begin{xymatrix}(0,0)*+{FB}="1",(35,0)*+{\Cone(Ff)}="2",(72,0)*+{(FA)[1]}="3",\ar^-{i'_2} "1";"2"\ar@{..>}@/^/^-{p'_2} "2";"1"\ar^-{p'_1} "2";"3"\ar@{..>}@/^/^-{i'_1} "3";"2"\end{xymatrix}$, 我们有dg同构 $\Phi_f:F\Cone(f)\to\Cone(Ff)$, $\Phi_f=i_1'\circ s_{FA}\circ F(s_A^{-1})\circ F(p_1)+i'_2\circ F(p_2)$.
+  - 若 $0$-次闭态射 $f:A\to B$ 有**映射锥** $\Cone(f)$ , 则将 $F$ 作用于图表 $\begin{xy}(0,0)*+{B}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{A[1]}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xy}$ 可知 $Ff$ 有映射锥 $F\Cone(f)$. 此外, 对于 $Ff$ 的任一映射锥 $\Cone(Ff)$ 连连同图表 $\begin{xy}(0,0)*+{FB}="1",(35,0)*+{\Cone(Ff)}="2",(72,0)*+{(FA)[1]}="3",\ar^-{i'_2} "1";"2"\ar@{..>}@/^/^-{p'_2} "2";"1"\ar^-{p'_1} "2";"3"\ar@{..>}@/^/^-{i'_1} "3";"2"\end{xy}$, 我们有dg同构 $\Phi_f:F\Cone(f)\to\Cone(Ff)$, $\Phi_f=i_1'\circ s_{FA}\circ F(s_A^{-1})\circ F(p_1)+i'_2\circ F(p_2)$.
   - 若 $\mathcal{A}$ 有映射锥函子, 且 $F$ 是dg本质满的, 则 $\mathcal{B}$ 也有映射锥函子.
   - 若 $\mathcal{A,B}$ 都有映射锥函子, 则有dg自然变换 $\Phi:F\circ\Cone\to\Cone\circ F:\op{Mor}_{\mathrm{dg}}(\mathcal{A})\to\mathcal{B}$, 其中 $\Phi_f$ 的表达式如上.
 
-#### 零对象
+### 零对象
 
 - dg范畴 $\mathcal{A}$ 中的对象 $A$ 称为零对象, 如果 $\id_A=0$. 零对象通常记为.
   - 零对象的任意平移仍是零对象.
   - 对任意对象 $A\in\mathcal{A}$, 我们有 $\Cone(0\to A)\cong A$, $\Cone(A\to0)\cong A[1]$.
 
-#### 预三角dg范畴
+### 预三角dg范畴
 
 - dg范畴 $\mathcal{A}$ 称为 **[预三角dg范畴]**, 如果 $\mathcal{A}$ 有零对象, 有平移, 也有映射锥.
-
   - 以下当我们谈到预三角dg范畴时, 总是假定它已经选定了零对象、平移函子、映射锥函子.
   - 有映射锥, 意味着 $\mathcal{A}$ 有任意直和. 因此 $\mathcal{A}$ 是一个加法范畴.
   - 例: 任意dg范畴 $\mathcal{A}$ 的右dg模范畴 $\mathsf{Mod}\text{-}\mathcal{A}$ 都是预三角dg范畴. 注意到Yoneda嵌入给出了全忠实dg函子 $\Upsilon:\mathcal{A}\to\mathsf{Mod}\text{-}\mathcal{A}$, $A\mapsto\widehat{A}$.
-
 - dg范畴 $\mathcal{A}$ 的一个 **[预三角包络]**, 是指一个预三角dg范畴 $\mathcal{A}^{\mathrm{pretr}}$ 和一个全忠实dg函子 $\Iota:\mathcal{A}\to\mathcal{A}^{\mathrm{pretr}}$ (从而可将 $\mathcal{A}$ 视为 $\mathcal{A}^{\mathrm{pretr}}$ 的dg全子范畴), 使得 $\mathcal{A}^{\mathrm{pretr}}$ 中包含 $\mathcal{A}$ 的最小预三角dg范畴就是 $\mathcal{A}^{\mathrm{pretr}}$ 本身.
-
   - 存在性: 考虑 $\mathsf{Mod}\text{-}\mathcal{A}$ 中包含 $\mathcal{A}$, 关于同构、平移、映射锥封闭, 且含零对象的最小dg子范畴, 将它记为 $\mathcal{A}^{\mathrm{pretr}}$. 则 $\Upsilon:\mathcal{A}\to\mathcal{A}^{\mathrm{pretr}}$ 是 $\mathcal{A}$ 的一个预三角包络.
-
     - **[推论]** $\mathcal{A}$ 是预三角dg范畴, 当且仅当 $\mathcal{A}^{\mathrm{pretr}}\subseteq\mathsf{Mod}\text{-}\mathcal{A}$ 中的任何对象都是一个可表模.
-
   - 泛性质: 若 $\mathcal{B}$ 是另一个预三角dg范畴, 则对任意dg函子 $F:\mathcal{A}\to\mathcal{B}$, 存在唯一的函子 $G:\mathcal{A}^{\mathrm{pretr}}\to\mathcal{B}$ 使得 $G\circ\Iota=F$. **[证明]** 递归定义 $\mathcal{A}^{\mathrm{pretr}}$ 的如下dg全子范畴: 
-  
     - $\mathcal{A}^{\mathrm{pretr}}_0=\{X\mid X\cong0$ 或 $X\cong A[k],A\in\mathcal{A},k\in\mathbb{Z}\}$, 这里 $0$ 是 $\mathcal{A}^{\mathrm{pretr}}$ 的零对象;
     - $\mathcal{A}^{\mathrm{pretr}}_{n+1}=\{X\mid X\cong\Cone(f)$, 其中 $f$ 是 $\mathcal{A}^{\mathrm{pretr}}_n$ 中的某个 $0$-次闭态射$\}$.
 
     容易看到 $\mathcal{A}\subseteq\mathcal{A}^{\mathrm{pretr}}_0\subseteq\mathcal{A}^{\mathrm{pretr}}_1\subseteq\cdots\subseteq\mathcal{A}^{\mathrm{pretr}}_n\subseteq\mathcal{A}^{\mathrm{pretr}}_{n+1}\subseteq\cdots$, 且 $\mathcal{A}^{\mathrm{pretr}}=\bigcup_{n\geq0}\mathcal{A}^{\mathrm{pretr}}_n$. 我们将递归地构造函子 $G:\mathcal{A}^{\mathrm{pretr}}\to\mathcal{B}$.
-  
     - 对于 $X\in\mathcal{A}^{\mathrm{pretr}}_0$, 设 $X\cong A[k]$ ($A\in\mathcal{A},k\in\mathbb{Z}$), 我们定义 $GX=(FA)[k]$. 
-    - 对于 $X\in\mathcal{A}^{\mathrm{pretr}}_{n+1}$, 设 $X\cong\Cone(f)$ ($f\in Z^0\mathcal{A}^{\mathrm{pretr}}_n$), 我们定义 $GX=\Cone(Ff)$.
+    - 对于 $X\in\mathcal{A}^{\mathrm{pretr}}_{n+1}$, 设 $X\cong\Cone(f)$ ($f\in \mathrm{Z}^0\mathcal{A}^{\mathrm{pretr}}_n$), 我们定义 $GX=\Cone(Ff)$.
 
     不难验证以上方式良定义地给出了dg函子 $G:\mathcal{A}^{\mathrm{pretr}}\to\mathcal{B}$, 使得 $G\circ\Iota=F$.
-  
   - 唯一性: 泛性质说明, $\mathcal{A}$ 的预三角包络在dg自然等价的意义下是唯一的.
 
-##### 扭曲复形
+#### 扭曲复形
 
 - 记号约定:
-
   - 设 $\mathcal{A}$ 有平移, 且假设平移函子 $[1]:\mathcal{A}\to\mathcal{A}$ 是一个dg同构, $[-1]=[1]^{-1}$ (当 $[1]$ 只是dg等价时, 我不知道如何处理本小节内容). 我们记 $\Sigma^k:A\to A[k]$ 为典范的 $(-k)$-次同构. 具体地,
     - 当 $k>0$ 时, $[k]=s_{A[k-1]}\circ\cdots\circ s_A:A\to A[1]\to\cdots\to A[k-1]\to A[k]$.
     - 当 $k<0$ 时, $[k]=t_{A[k+1]}\circ\cdots\circ t_A:A\to A[-1]\to\cdots\to A[k+1]\to A[k]$.
   - 对任意 $A,B\in\mathcal{A}$ 和任意 $k,l\in\mathbb{Z}$, 有链复形的典范同构 $\Phi:\mathcal{A}(A[k],B[l])\to\mathcal{A}(A,B)[l-k]$, $f\mapsto(-1)^{k|f|}\Sigma^{-l}\circ f\circ\Sigma^k$, 这里右端元素视为属于 $\mathcal{A}(A,B)[l-k]$.
   - 对任意对象 $A,B,C\in\mathcal{A}$, 我们有典范态射 $\mathcal{A}(B,C)[l]\otimes\mathcal{A}(A,B)[k]\to\mathcal{A}(A,C)[k+l]$, $g\otimes f\mapsto(-1)^{k|g|}\Sigma^{k+l}(\Sigma^{-l}(g)\circ\Sigma^{-k}(f))$, 这里 $\Sigma$ 代表复形的平移态射. 它满足交换图表
-
+  
   $$
   \begin{CD}
   	\mathcal{A}(B[k],C[k+l])\otimes\mathcal{A}(A,B[k]) @>\text{通常复合}>>
@@ -671,14 +925,12 @@ $$
   	\mathcal{A}(A,C)[k+l].
   \end{CD}
   $$
-
+  
 - 对于dg范畴 $\mathcal{A}$, 我们定义其上 **[扭曲复形的dg范畴]** $\Tw(\mathcal{A})$:
-
   - 对象: $\mathcal{A}$ 上的扭曲复形. 所谓 **[扭曲复形]** 是一个二元组 $(E,q)$, 其中
     - $E$ 是由 $\mathcal{A}$ 中一些对象 $E_1,\cdots,E_n$ 和一些整数 $r_1,\cdots,r_n$ 构成的集合 (允许重复), 常形式地记为 $E=\bigoplus_{i=1}^nE_i[r_i]$;
     - $q=(q_{ij})_{n\times n}$ 是一个严格下三角矩阵, 其中当 $i>j$ 时 $q_{ij}\in\mathcal{A}(E_j,E_i)[r_i-r_j]^1$;
     - $q$ 满足 **[Maurer–Cartan 方程]** $d(q)+q^2=0$, 其中 $d(q)=(d_{\mathcal{A}(E_j,E_i)[r_i-r_j]}(q_{ij}))$, $q^2$ 是矩阵乘法.
-
   - 态射: 扭曲复形的态射 $f:(E,q)\to(E',q')$ 定义如下:
     - $f=(f_{ij})$ 是由态射构成的矩阵, 其中 $f_{ij}\in\mathcal{A}(E_j,E'_i)[r'_i-r_j]$;
     - $|f|=p$ 如果 $f_{ij}\in\mathcal{A}(E_j,E'_i)[r'_i-r_j]^p$, $\forall i,j$.
@@ -691,7 +943,6 @@ $$
 **[证明]** 分为四步. <u>**第一步:**</u> $\Tw(\mathcal{A})$ 是一个dg范畴.
 
 - 首先, $\Tw(\mathcal{A})$ 的对象、态射、复合都是良定义的. 对任意扭曲复形 $(E,q)$, 考虑单位矩阵 $\id_{(E,q)}=\op{diag}(\id_{E_1},\cdots,\id_{E_n})$, 其中 $\id_{E_i}\in\Hom_\mathcal{A}(E_i,E_i)[r_i-r_i]^0$, 不难验证它给出了恒等态射. 态射集上有分次 $\Bbbk$-模结构, 复合是双线性且保分次的, 因此 $\Tw(\mathcal{A})$ 是一个分次范畴. 
-
 - 我们必须验证 $d_{\Tw(\mathcal{A})}$ 是一个微分. 显然 $d_{\Tw(\mathcal{A})}$ 是 $1$-次同态. 对于态射 $f:(E,q)\to(E',q')$ 和 $g:(E',q')\to(E'',q'')$, 直接计算可得
   $$
   \begin{aligned}
@@ -712,9 +963,7 @@ $$
   $$
 
 <u>**第二步:**</u> $\Tw(\mathcal{A})$ 有平移函子.
-
 - 定义平移对象: 扭曲复形 $(E=\bigoplus_{i=1}^nE_i[r_i],q)$ 的平移对象定义为 $(E,q)[1]=(E[1],q[1])$, 其中 $E[1]=\bigoplus_{i=1}^nE_i[r_i+1]$, $q[1]=q$. 这样定义的 $(E,q)[1]$ 显然满足 Maurer–Cartan 方程, 因此 $(E,q)[1]$ 确实是一个扭曲复形.
-
 - 验证它是平移对象: 定义 $(-1)$-次态射 $s_{(E,q)}:(E,q)\to(E,q)[1]$ 为对角矩阵 $s_{(E,q)}=\op{diag}((-1)^{r_i}\id_{E_i})$, 其中 $\id_{E_i}\in\Hom_{\mathcal{A}}(E_i,E_i)[-1]^{-1}$. 它显然是分次同构. 我们验证它是闭的:
   $$
   \begin{aligned}
@@ -727,10 +976,8 @@ $$
   $$
 
 <u>**第三步:**</u> $\Tw(\mathcal{A})$ 有映射锥函子.
-
 - 定义映射锥对象: 对于 $0$-次闭态射 $f:(E,q)\to(E',q')$, 我们定义映射锥 $\Cone(f)$ 为 $(E[1]\oplus E',Q)$, 其中 $Q=\begin{pmatrix}q[1]&0\\f'&q\end{pmatrix}$, 这里的 $q[1]=q$ 如上, $f'=(f'_{ij})$ 中的 $f'_{ij}\in\Hom_{\Tw(\mathcal{A})}(E_j,E'_i)[r'_i-(r_j+1)]^1$ 是与 $f_{ij}\in\Hom_{\Tw(\mathcal{A})}(E_j,E'_i)[r'_i-r_j]^0$ 对应的元素.
-
-- 验证Maurer–Cartan方程：由 $f\in Z^0$ 可知 $ d(f)+q'f-fq=0$, 再由 $d(f)=- d(f'),q'f=-q'f',fq=f'q$ 可得 $ d(f')+q'f'-(-1)^{|f'|}f'q=0$, 于是
+- 验证Maurer–Cartan方程：由 $f\in \mathrm{Z}^0$ 可知 $ d(f)+q'f-fq=0$, 再由 $d(f)=- d(f'),q'f=-q'f',fq=f'q$ 可得 $ d(f')+q'f'-(-1)^{|f'|}f'q=0$, 于是
   $$
   \begin{aligned}
   	 d(Q)+Q^2
@@ -740,25 +987,41 @@ $$
   \end{aligned}
   $$
   因此 $\Cone(f)$ 是一个扭曲复形.
-
-- 验证这是映射锥对象: 为了验证 $\Cone(f)$ 是 $f$ 的一个锥对象, 考虑图表 $\begin{xymatrix}(0,0)*+{(E,q)}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{(E',q')}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xymatrix}$, 其中  $i_2=\begin{pmatrix}\id_{E'}&0\end{pmatrix}, p_1=\begin{pmatrix}0\\\id_{E[1]}\end{pmatrix}, i_1=\begin{pmatrix}0&\id_{E[1]}\end{pmatrix}, p_2=\begin{pmatrix}\id_{E'}\\0\end{pmatrix}$. 这四个态射都是 $0$-次态射, 且不难验证下列等式: $p_2\circ i_2=\id_{E'}$, $p_1\circ i_1=\id_{E[1]}$, $i_1\circ p_1+i_2\circ p_2=\id_{\Cone(f)}$, $ d(i_2)=0$, $ d(p_1)=0$, $ d(i_1)=i_2\circ f\circ\beta_{(E,q)}$, $ d(p_2)=-f\circ\beta_{(E,q)}\circ p_1$. 因此 $\Cone(f)$ 是 $f$ 的一个锥对象.
+- 验证这是映射锥对象: 为了验证 $\Cone(f)$ 是 $f$ 的一个锥对象, 考虑图表 $\begin{xy}(0,0)*+{(E,q)}="1",(30,0)*+{\Cone(f)}="2",(62,0)*+{(E',q')}="3",\ar^-{i_2} "1";"2"\ar@{..>}@/^/^-{p_2} "2";"1"\ar^-{p_1} "2";"3"\ar@{..>}@/^/^-{i_1} "3";"2"\end{xy}$, 其中  $i_2=\begin{pmatrix}\id_{E'}&0\end{pmatrix}, p_1=\begin{pmatrix}0\\\id_{E[1]}\end{pmatrix}, i_1=\begin{pmatrix}0&\id_{E[1]}\end{pmatrix}, p_2=\begin{pmatrix}\id_{E'}\\0\end{pmatrix}$. 这四个态射都是 $0$-次态射, 且不难验证下列等式: $p_2\circ i_2=\id_{E'}$, $p_1\circ i_1=\id_{E[1]}$, $i_1\circ p_1+i_2\circ p_2=\id_{\Cone(f)}$, $ d(i_2)=0$, $ d(p_1)=0$, $ d(i_1)=i_2\circ f\circ\beta_{(E,q)}$, $ d(p_2)=-f\circ\beta_{(E,q)}\circ p_1$. 因此 $\Cone(f)$ 是 $f$ 的一个锥对象.
 
 <u>**第四步:**</u> $\Tw(\mathcal{A})$ 是 $\mathcal{A}$ 的一个预三角包络.
-
 - 我们构造一个全忠实的dg函子 $\mathcal{A}\to\Tw(\mathcal{A})$:
   - 在对象上, 将对象 $A$ 映为扭曲复形 $(A[0],0)$;
-
   - 在态射上, 将态射 $f\in\mathcal{A}(A,B)$ 映为 $(f)\in\Hom_{\Tw(\mathcal{A})}((A[0],0),(B[0],0))$.
 - 为了说明它是dg本质满的, 我们给出如下构造: 任取扭曲复形 $(E=\bigoplus_{i=1}^nE_i[r_i],q=(q_{ij}))$, 令 $E'=(E_1[r_1-1],0)$, $E''=(\bigoplus_{i=2}^nE_i[r_i],(q_{ij})_{2\leq j<i\leq n})$, 则有态射 $f=(q'_{21},\cdots,q'_{n1})^T:E'\to E''$, 其中 $q'_{i1}\in\mathcal{A}(E_1,E_i)[r_i-(r_1-1)]^0$ 是与 $q_{i1}\in\mathcal{A}(E_1,E_i)[r_i-r_1]^1$ 对应的元素. 利用 $d(q)+q^2=0$ 以及分块矩阵乘法, 可见 $f$ 是一个 $0$-次闭态射, 且根据映射锥的构造可知 $E\cong\Cone(f)$. 据此, 归纳可知 $E$ 是从 $E_1,\cdots,E_n$ 出发, 作平移之和映射锥得到的对象. **[证毕]**
 
-##### 三角结构
+- 例: 考虑dg代数 $R$ 上右dg模的dg范畴 $\mathsf{Mod}_{\mathrm{dg}}\text{-}R$. 我们将给出一个dg函子 $\op{Tot}:\Tw(\mathsf{Mod}_{\mathrm{dg}}\text{-}R)\to\mathsf{Mod}_{\mathrm{dg}}\text{-}R$.
+  - 在对象上: 它将扭曲复形 $(E=\bigoplus_{i=1}^nE_i[r_i],q=(q_{ij}))$ 映为一个右dg模 $\op{Tot}(E,q)$, 其中
+    - 作为分次模, $\op{Tot}(E,q)=\bigoplus_{i=1}^nE_i[r_i]$ (这里是真正的平移).
+    - 它的微分是矩阵 $d_{\op{Tot}(E,q)}\begin{pmatrix}d_{E_1[r_1]}\\\tilde q_{21}&d_{E_2[r_2]}\\\tilde q_{31}&\tilde q_{32}&d_{E_3[r_3]}\\\vdots&\vdots&\vdots&\ddots\\\tilde q_{n1}&\tilde q_{n2}&\tilde q_{n3}&\cdots&d_{E_n[r_n]}\end{pmatrix}$, 其中 $\tilde q_{ij}\in\Hom_{R}(E_j[r_j],E_i[r_i])$ 是与 $q_{ij}\in\Hom_{R}(E_j,E_i)[r_i-r_j]$ 对应的态射. 不严格地讲, $\tilde q_{ij}=(-1)^{r_j}q_{ij}$. Maurer–Cartan方程等价于 $d_{\op{Tot}(E,q)}^2=0$.
+  - 在态射上: 对于态射 $f:(E,q)\to(E',q')$, 我们定义 $\Tot(f):\op{Tot}(E,q)\to\op{Tot}(E',q')$ 为矩阵 $(\tilde f_{ij})$, 使得 $\tilde f_{ij}=\Psi^{-1}(f_{ij})=(-1)^{r_j|f|}f_{ij}$. 不难验证 $\Tot(f)$ 的微分与先前定义的 $d_{\Tw(\mathcal{A})}(f)$ 相容, 因此 $\op{Tot}$ 是一个dg函子.
 
-**[定理]** 设 $\mathcal{A}$ 是一个预三角dg范畴. 则 $Z^0\mathcal{A}$ 有一个典范的Frobenius范畴结构, 使得其稳定范畴就是 $H^0\mathcal{A}$. 从而 $H^0\mathcal{A}$ 是一个三角范畴.
+#### 三角结构
 
-- 例: 若 $\mathcal{A}$ 是一个dg范畴, 则 $\mathsf{Mod}\text{-}\mathcal{A}$ 是一个预三角dg范畴, 而 $H^0\mathcal{A}$ 就是同伦范畴 $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$.
+**[定理]** 设 $\mathcal{A}$ 是一个预三角dg范畴. 则 $\mathrm{Z}^0\mathcal{A}$ 有一个典范的Frobenius范畴结构, 使得其稳定范畴就是 $\mathrm{H}^0\mathcal{A}$. 从而 $\mathrm{H}^0\mathcal{A}$ 是一个三角范畴.
 
-- **[证明概要]** 一个不用Frobenius范畴理论的证明, 参见《The Stacks Project》Section [09P5](https://stacks.math.columbia.edu/tag/09P5).**[证毕]**
+- 例: 若 $\mathcal{A}$ 是一个dg范畴, 则 $\mathsf{Mod}\text{-}\mathcal{A}$ 是一个预三角dg范畴, 而 $\mathrm{H}^0\mathcal{A}$ 就是同伦范畴 $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$.
 
-- dg范畴 $\mathcal{A}$ 的 **[三角包络]** $\mathcal{A}^{\mathrm{tr}}$ 定义为三角范畴 $H^0(\mathcal{A}^{\mathrm{pretr}})$.
+**[证明概要]** 一个不用Frobenius范畴理论的证明, 参见《The Stacks Project》Section [09P5](https://stacks.math.columbia.edu/tag/09P5).**[证毕]**
 
-- 例: 若 $\mathcal{A}$ 是一个dg范畴, 则 $\mathsf{Mod}\text{-}\mathcal{A}$ 是一个预三角dg范畴, 而 $H^0\mathcal{A}$ 就是同伦范畴 $\mathbf{H}(\mathsf{Mod}\text{-}\mathcal{A})$.
+- dg范畴 $\mathcal{A}$ 的 **[三角包络]** $\mathcal{A}^{\mathrm{tr}}$ 定义为三角范畴 $\mathrm{H}^0\mathcal{A}^{\mathrm{pretr}}$.
+
+### 代数的三角范畴
+
+- 三角范畴 $\mathcal{T}$ 的一个 **[dg强化]** 是一个预三角dg范畴 $\mathcal{A}$ 连同一个三角等价 $\mathrm{H}^0\mathcal{A}\to\mathcal{T}$.
+- 三角范畴 $\mathcal{T}$ 称为一个 **[代数的三角范畴]**, 如果它是某个Frobenius范畴的稳定范畴.
+
+**[定理]** 对于一个三角范畴 $\mathcal{T}$, 下列命题等价:
+- (1) $\mathcal{T}$ 是一个代数的三角范畴;
+- (2) $\mathcal{T}$ 容许一个dg强化.
+
+**[定理]** 设有三个三角范畴 $\mathcal{T}',\mathcal{T},\mathcal{T}''$, 其中 $\mathcal{T}'$ 是 $\mathcal{T}$ 的三角子范畴, $\mathcal{T}''\cong\mathcal{T}/\mathcal{T}'$ 是Verdier商范畴. 则若其中有两个是代数的三角范畴, 则第三个也是代数的三角范畴.
+
+**[证明概要]** 我们必须先给出Drinfeld dg商范畴的构造...
+
+## Drinfeld dg商范畴
