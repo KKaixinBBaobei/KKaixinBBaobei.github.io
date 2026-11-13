@@ -1,6 +1,6 @@
 # 倪志扬的个人主页
 
-这是一个使用 Jekyll 构建的 GitHub Pages 网站。主页内容在 `index.md`，页面外观在 `_layouts/default.html` 和 `assets/css/style.css`。
+这是一个使用 Jekyll 构建的 GitHub Pages 网站。主页内容在 `index.md`，论文在 `Papers/index.md`，笔记在 `Notes/index.md`。页面外观在 `_layouts/default.html` 和 `assets/css/style.css`。
 
 ## 写一篇博文
 
@@ -15,7 +15,7 @@ title: 我的第一篇博文
 这里开始写正文，使用普通 Markdown 即可。
 ```
 
-提交并推送后，博文会自动出现在 `/blog/` 页面。修改主页则编辑 `index.md`。
+提交并推送后，博文会自动出现在 `/Notes/` 页面。修改现有内容时，直接编辑对应页面的 Markdown 文件。
 
 ## 本地预览
 
