@@ -17,9 +17,9 @@ title: 我的第一篇博文
 
 提交并推送后，博文会自动出现在 `/Notes/` 页面。修改现有内容时，直接编辑对应页面的 Markdown 文件。
 
-数学公式较多的博文可以在开头的配置区加入 `math: true`。这会加载 MathJax 3 和 XyJax，以渲染 `$...$`、`$$...$$` 公式及 `xy` 环境。现有的 DG 范畴笔记位于 `_posts/2026-11-13-DG范畴.md`，它在网站上的地址是 `/Notes/dg-categories/`。
+数学公式较多的博文可以在开头的配置区加入 `math: true`。这会加载 MathJax 3 和 XyJax。行内公式请写 `$$...$$`；独立成行的公式则把 `$$` 分别放在公式前后两行。Kramdown 不会保护单个 `$...$` 内的下划线，可能把它解析成 Markdown 强调。现有的 DG 范畴笔记位于 `_posts/2026-11-13-DG范畴.md`，它在网站上的地址是 `/Notes/dg-categories/`。
 
-在行内公式中表示竖线时请写 `\vert{}`，例如 `$\vert{}f\vert{}$`。直接写 `|` 可能让 Kramdown 把公式当作表格。`xy` 图表语法里的 `|` 有不同用途，不要替换；行内图表可用 `<span markdown="0">$...$</span>` 包住，防止 Markdown 修改图表内容。
+在行内公式中表示竖线时请写 `\vert{}`，例如 `$$\vert{}f\vert{}$$`。直接写 `|` 可能让 Kramdown 把公式当作表格。`xy` 图表语法里的 `|` 有不同用途，不要替换；行内图表可用 `<span markdown="0">$...$</span>` 包住，防止 Markdown 修改图表内容。
 
 ## 本地预览
 
@@ -29,6 +29,8 @@ title: 我的第一篇博文
 bundle install
 bundle exec jekyll serve
 ```
+
+如果 Windows 上的 `bundle install` 提示 `MSYS2 could not be found`，先运行 `ridk install` 安装 RubyInstaller 的编译工具。
 
 浏览器打开 `http://127.0.0.1:4000/`。若 GitHub Pages 尚未设置发布来源，在仓库 **Settings → Pages** 中选择 **Deploy from a branch**，分支选择 `main`，目录选择 `/ (root)`。
 
