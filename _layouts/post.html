@@ -2,8 +2,17 @@
 layout: default
 ---
 
-<article>
-  <h1>{{ page.title | escape }}</h1>
-  <p class="post-date"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y-%m-%d' }}</time></p>
-  {{ content }}
-</article>
+<div class="post-layout">
+  <aside class="note-toc" id="note-toc" aria-label="笔记目录" hidden>
+    <div class="toc-title">目录</div>
+    <nav aria-label="本页目录"><ul id="toc-list"></ul></nav>
+  </aside>
+  <article class="post">
+    <h1>{{ page.title | escape }}</h1>
+    <p class="post-date"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y-%m-%d' }}</time></p>
+    <div class="post-content">
+      {{ content }}
+    </div>
+  </article>
+</div>
+<script src="{{ '/assets/js/toc.js' | relative_url }}"></script>

@@ -25,3 +25,47 @@ li { margin: .5rem 0; }
 a { color: #185a9d; }
 a:hover { text-decoration-thickness: 2px; }
 .post-date { color: #666; }
+
+.site-post { max-width: 78rem; }
+
+.post-layout.has-toc {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  align-items: start;
+  gap: 2.5rem;
+}
+
+.post { min-width: 0; }
+.post-content { max-width: 52rem; }
+.post-content :is(h1, h2, h3, h4, h5, h6) { scroll-margin-top: 1.5rem; }
+
+.note-toc {
+  position: sticky;
+  top: 1.5rem;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  padding-right: .5rem;
+}
+
+.note-toc[hidden] { display: none; }
+.toc-title { margin: 0 0 .5rem .5rem; font-weight: 600; }
+.note-toc nav { display: block; padding: 0; border: 0; }
+.note-toc ul { margin: 0; padding: 0; list-style: none; }
+.note-toc li { margin: 0; }
+.note-toc a {
+  display: block;
+  padding: .3rem .5rem .3rem calc(.5rem + var(--toc-indent));
+  border-radius: .25rem;
+  color: inherit;
+  font-size: .9rem;
+  line-height: 1.4;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.note-toc a:hover, .note-toc a:focus-visible { background: #f1f5f9; }
+
+@media (max-width: 52rem) {
+  .site-post { max-width: 48rem; }
+  .post-layout.has-toc { display: block; }
+  .note-toc { display: none; }
+}
