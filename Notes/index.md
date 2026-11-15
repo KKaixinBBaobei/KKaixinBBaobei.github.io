@@ -5,8 +5,6 @@ title: 笔记
 
 # 笔记
 
-## 数学笔记
-
 1. [Notes](https://cn.overleaf.com/read/mjkyxymwbqcn#f317e3) on *Representation Theory of Artin Algebras* by M. Auslander, I. Reiten, S.O. Smalø
    - 这是我于2024年夏季写的读书笔记，我补充了书中的一些跳步，并增加了若干结论的小推广。总体来说，这本书是很基础的，只需学过本科同调代数就能读懂。读完后，你将有能力看懂倾斜理论以前的大部分代数表示论论文。
 2. [Notes](https://cn.overleaf.com/read/rbxpbvkcvbcm#f1a07d) on string algebras (in process)
